@@ -18,9 +18,15 @@ public class App {
 
         logger.log(Level.INFO, "Enter your name: ");
         String name = scanner.nextLine();
+        // The nextLine() method returns a string containing all of the characters up
+        // to the next new line character in the scanner, or up to the end of the
+        // scanner if there are no more new line characters.
 
         logger.log(Level.INFO, "Enter your age: ");
         int age = scanner.nextInt();
+        // The nextLine() method returns a string containing all of the characters up to
+        // the next new line character in the scanner, or up to the end of the scanner
+        // if there are no more new line characters.
 
         logger.log(Level.INFO, "Name: {0}", name);
         logger.log(Level.INFO, "Age: {0}", age);

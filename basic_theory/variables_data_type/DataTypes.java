@@ -45,31 +45,40 @@ public class DataTypes {
          */
 
         /*
-         * The var keyword allows a variable to be initialized without having to declare its type. The type of the variable depends on the type of the data that is being assigned to it.
+         * The var keyword allows a variable to be initialized without having to declare
+         * its type. The type of the variable depends on the type of the data that is
+         * being assigned to it.
          * Where it can be used?
-         * You can use var to declare a variable. 
+         * You can use var to declare a variable.
          * You can use var when declaring variable in for loop statement.
          * You can use var with try-with-resources statement.
          * Where it cannot be used?
-         * You cannot declare a local variable using var without initialising it or with null value. This is because var needs to know what data type it is assigning to a variable.
-         * You cannot use var for declaring instance fields, static fields, declaring a lambda expression, parameters for constructors or methods, method return types and generic types.
-         * When you want same type of variable for an object of same inheritance hierarchy, then in that case also, var is not recommended to be used.
+         * You cannot declare a local variable using var without initialising it or with
+         * null value. This is because var needs to know what data type it is assigning
+         * to a variable.
+         * You cannot use var for declaring instance fields, static fields, declaring a
+         * lambda expression, parameters for constructors or methods, method return
+         * types and generic types.
+         * When you want same type of variable for an object of same inheritance
+         * hierarchy, then in that case also, var is not recommended to be used.
          */
 
-         /*
-          * Const in Java
-          * A final keyword is used to declare a constant variable.
-          * A constant variable can't be changed once it's initialized.
-          * A constant variable can't be null.
-          * A constant variable can't be declared without initializing it.
-          * The final keyword is used to prevent a variable from being changed once it's initialized.
-          * The final keyword is used to prevent a class from being extended.
-          * The final keyword is used to prevent a method from being overridden.
-          * The final keyword is used to prevent a variable from being assigned a new value.
-          * The final keyword is used to prevent a variable from being referenced.
-          * The final keyword is used to prevent a variable from being declared as a local variable
-          */
-
+        /*
+         * Const in Java
+         * A final keyword is used to declare a constant variable.
+         * A constant variable can't be changed once it's initialized.
+         * A constant variable can't be null.
+         * A constant variable can't be declared without initializing it.
+         * The final keyword is used to prevent a variable from being changed once it's
+         * initialized.
+         * The final keyword is used to prevent a class from being extended.
+         * The final keyword is used to prevent a method from being overridden.
+         * The final keyword is used to prevent a variable from being assigned a new
+         * value.
+         * The final keyword is used to prevent a variable from being referenced.
+         * The final keyword is used to prevent a variable from being declared as a
+         * local variable
+         */
 
         logger.log(Level.INFO, DOT_LINES);
         logger.log(Level.INFO, "---Data Types in Java---");

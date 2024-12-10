@@ -25,7 +25,15 @@ public class App {
                 """;
 
         logger.log(Level.INFO, "textBlock: {0}", textBlock);
-
+        logger.log(Level.INFO, DOT_LINES);
+        logger.log(Level.INFO, "---charAt in Java---");
+        logger.log(Level.INFO, DOT_LINES);
+        /*
+         * The charAt() method returns the character at the specified index in the
+         * string. The index is zero based.
+         */
+        String usingCharAt = "Non reprehenderit nulla enim nulla.";
+        logger.log(Level.INFO, "usingCharAt.charAt(0): {0}", usingCharAt.charAt(0));
 
     }
 }

@@ -116,12 +116,19 @@ public class StringMethods {
                 .append(" byte sequence").toString();
         logger.log(Level.INFO, "new newCollection10 from StringBuffer: {0}", newCollection10);
 
-
         // join: Returns a new string consisting of all the elements of this array.
         logger.log(Level.INFO, "---join in Java---");
-        // join is used to create a new string that is a concatenation of all the elements
+        // join is used to create a new string that is a concatenation of all the
+        // elements
         var newStringWithJoin = String.join(", ", "one", " two", " three", newCollection10);
         logger.log(Level.INFO, "new newStringWithJoin from join: {0}", newStringWithJoin);
+
+        // strip: Returns a new string with leading and trailing whitespace removed.
+        logger.log(Level.INFO, "---strip in Java---");
+        // strip removes all Unicode whitespace characters (but not all control characters, such as \0).
+        var nameUser = "   John Doe Jones   ";
+        var newStringWithStrip = nameUser.strip();
+        logger.log(Level.INFO, "new nameUser from strip: {0}", newStringWithStrip);
 
     }
 }

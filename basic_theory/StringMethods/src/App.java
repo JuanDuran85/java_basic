@@ -34,6 +34,25 @@ public class App {
          */
         String usingCharAt = "Non reprehenderit nulla enim nulla.";
         logger.log(Level.INFO, "usingCharAt.charAt(0): {0}", usingCharAt.charAt(0));
+        logger.log(Level.INFO, DOT_LINES);
+
+        logger.log(Level.INFO, DOT_LINES);
+        logger.log(Level.INFO, "---comparator string in Java---");
+        logger.log(Level.INFO, DOT_LINES);
+
+        /*
+         * If we use "==" operator to compare two strings, it will compare their memory addresses or references.
+         * If we use the equals() method, it will compare their characters.
+         */
+
+        var compare1 = "Hello";
+        var compare2 = "Hello";
+        var compare3 = new String("Hello");
+
+        logger.log(Level.INFO, "compare1 == compare2: {0}", compare1 == compare2);
+        logger.log(Level.INFO, "compare1.equals(compare2): {0}", compare1.equals(compare2));
+        logger.log(Level.INFO, "compare1 == compare3: {0}", compare1 == compare3);
+
 
     }
 }

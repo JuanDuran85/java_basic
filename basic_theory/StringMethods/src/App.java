@@ -52,7 +52,5 @@ public class App {
         logger.log(Level.INFO, "compare1 == compare2: {0}", compare1 == compare2);
         logger.log(Level.INFO, "compare1.equals(compare2): {0}", compare1.equals(compare2));
         logger.log(Level.INFO, "compare1 == compare3: {0}", compare1 == compare3);
-
-
     }
 }

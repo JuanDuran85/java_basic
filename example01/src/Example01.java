@@ -15,5 +15,8 @@ public class Example01 {
         System.err.println("Business: " + normalizedBusinessName);
         var finalEmail = normalizedName + "@" + normalizedBusinessName + "." + domain;
         System.out.println("Email: " + finalEmail);
+
+        // printf: this method is used to format and print data.
+        System.out.printf("Final Email Result: %s@%s.%s%n", normalizedName, normalizedBusinessName, domain);
     }
 }

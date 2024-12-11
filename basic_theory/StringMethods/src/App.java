@@ -85,6 +85,9 @@ public class App {
          var singleQuoteString = "Ea sit nostrud eiusmod irure.'Ea sit nostrud eiusmod irure.";
          logger.log(Level.INFO, "singleQuoteString \'': {0}", singleQuoteString);
          logger.log(Level.INFO, DOT_LINES);
+         // Special Character \s: insert a whitespace
+         var whitespaceString = "Ea sit nostrud eiusmod irure.\sEa sit nostrud eiusmod irure.";
+         logger.log(Level.INFO, "whitespaceString \\s: {0}", whitespaceString);
 
     }
 }

@@ -125,7 +125,8 @@ public class StringMethods {
 
         // strip: Returns a new string with leading and trailing whitespace removed.
         logger.log(Level.INFO, "---strip in Java---");
-        // strip removes all Unicode whitespace characters (but not all control characters, such as \0).
+        // strip removes all Unicode whitespace characters (but not all control
+        // characters, such as \0).
         var nameUser = "   John Doe Jones   ";
         var newStringWithStrip = nameUser.strip();
         logger.log(Level.INFO, "new nameUser from strip: {0}", newStringWithStrip);
@@ -134,14 +135,33 @@ public class StringMethods {
         logger.log(Level.INFO, "---format in Java---");
         // format is used to create a new string that is a formatted string using the
         // given arguments.
-        var newStringWithFormat = String.format("The name of the user is %s", nameUser);
+        var newStringWithFormat = String.format("The name of the user is %s", nameUser.strip());
         logger.log(Level.INFO, "new newStringWithFormat from format: {0}", newStringWithFormat);
+        var ageUser = 20;
+        var salaryUser = 50000.87654321;
+        var newMessageFormatted = String.format("The age of the user is %d, and the salary is %.2f", ageUser,
+                salaryUser);
+        logger.log(Level.INFO, "The information is: {0}", newMessageFormatted);
 
-        // formatted: Formats using this string as the format string, and the supplied arguments.
+        // formatted: Formats using this string as the format string, and the supplied
+        // arguments.
         logger.log(Level.INFO, "---formatted in Java---");
         // This method is equivalent to String.format(this, args)
         var valueWithOutFormat = 343.5676768;
         var formatString = "the value using formatted is: %.2f";
         logger.log(Level.INFO, formatString.formatted(valueWithOutFormat));
+        var textBlock = """
+                %nThis is a textBlock\s
+                -----------------------
+                \tstring value: %s
+                \tinteger value: %04d
+                \tfloat value: %.2f
+                \tchar value: %c
+                \tboolean value: %b
+                -----------------------
+                %nThis is an example of a formatted text block.%n
+                -----------------------
+                """.formatted("value string", 2, 3.141592, 'A', true);
+        logger.log(Level.INFO, textBlock);
     }
 }

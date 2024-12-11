@@ -34,7 +34,7 @@ public class Example03 {
                 case 1 -> logger.info("Option 1 selected \n");
                 case 2 -> logger.info("Option 2 selected \n");
                 case 3 -> {
-                    logger.info("Option 3 selected \n");
+                    logger.info("Option 3 selected - Exit \n");
                     exit = true;
                 }
                 default -> logger.info("Option not found \n");

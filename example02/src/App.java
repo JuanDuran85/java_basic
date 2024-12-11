@@ -1,0 +1,37 @@
+
+import java.util.Random;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class App {
+    
+    static final Logger logger = Logger.getLogger(App.class.getName());
+    static final String DOT_LINES_TH = "---------------------------";
+    static Scanner scanner = new Scanner(System.in);
+    
+    public static void main(String[] args) {
+
+        Random randomGenerator = new Random();
+        
+        logger.log(Level.INFO, DOT_LINES_TH);
+        logger.log(Level.INFO, "---Generator ID in Java---");
+        logger.log(Level.INFO, DOT_LINES_TH);
+        
+
+        logger.log(Level.INFO, "Enter your first name:");
+        String firstName = scanner.nextLine();
+
+        logger.log(Level.INFO, "Enter your last name:");
+        String lastName = scanner.nextLine();
+
+        logger.log(Level.INFO, "Enter your birthday year YYYY:");
+        int birthYear = Integer.parseInt(scanner.nextLine());
+        String birthYearToString = String.format("%04d", birthYear);
+
+        int randomNumber = randomGenerator.nextInt(9999) + 1;
+        String  numberToString = String.format("%04d", randomNumber);
+        String  idValue = firstName.substring(0,1).toUpperCase() + lastName.substring(0,1).toUpperCase() + birthYearToString + numberToString;
+        logger.log(Level.INFO, "Generated ID: {0}", idValue);
+    }
+}

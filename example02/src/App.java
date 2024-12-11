@@ -26,12 +26,11 @@ public class App {
         String lastName = scanner.nextLine();
 
         logger.log(Level.INFO, "Enter your birthday year YYYY:");
-        int birthYear = Integer.parseInt(scanner.nextLine());
-        String birthYearToString = String.format("%04d", birthYear);
+        String birthYear = scanner.nextLine();
 
         int randomNumber = randomGenerator.nextInt(9999) + 1;
         String  numberToString = String.format("%04d", randomNumber);
-        String  idValue = firstName.substring(0,1).toUpperCase() + lastName.substring(0,1).toUpperCase() + birthYearToString + numberToString;
+        String  idValue = firstName.substring(0,2).toUpperCase() + lastName.substring(0,2).toUpperCase() + birthYear.substring(2) + numberToString;
         logger.log(Level.INFO, "Generated ID: {0}", idValue);
     }
 }

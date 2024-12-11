@@ -50,22 +50,43 @@ public class App {
         logger.log(Level.INFO, "-------- Data Conversion with Scanner Methods --------");
         logger.log(Level.INFO, DOT_LINES);
 
+        // parseInt()
         logger.log(Level.INFO, "Enter a whole number: ");
         String wholeNumberString = scanner.nextLine();
         int wholeNumber = Integer.parseInt(wholeNumberString);
         // parseInt() method converts the string argument to an integer.
         logger.log(Level.INFO, "Whole Number: {0}", wholeNumber);
 
+        // parseDouble()
         logger.log(Level.INFO, "Enter your weight: ");
         String weightString = scanner.nextLine();
         double weight = Double.parseDouble(weightString);
         // parseDouble() method converts the string argument to a double.
         logger.log(Level.INFO, "Weight: {0}", weight);
 
+        // parseFloat()
         logger.log(Level.INFO, "Enter a decimal number: ");
         float decimalNumber = Float.parseFloat(scanner.nextLine());
         // parseFloat() method converts the string argument to a float.
         logger.log(Level.INFO, "Decimal Number: {0}", decimalNumber);
+
+        // parseBoolean()
+        logger.log(Level.INFO, "Enter true or false: ");
+        boolean booleanValue = Boolean.parseBoolean(scanner.nextLine());
+        // parseBoolean() method converts the string argument to a boolean.
+        logger.log(Level.INFO, "Boolean Value: {0}", booleanValue);
+
+        // parseByte()
+        logger.log(Level.INFO, "Enter a byte value: ");
+        byte byteValue = Byte.parseByte(scanner.nextLine());
+        // parseByte() method converts the string argument to a byte.
+        logger.log(Level.INFO, "Byte Value: {0}", byteValue);
+
+        // parseShort()
+        logger.log(Level.INFO, "Enter a short value: ");
+        short shortValue = Short.parseShort(scanner.nextLine());
+        // parseShort() method converts the string argument to a short.
+        logger.log(Level.INFO, "Short Value: {0}", shortValue);
 
         scanner.close(); // close the scanner
     }

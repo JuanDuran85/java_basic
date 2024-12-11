@@ -130,5 +130,18 @@ public class StringMethods {
         var newStringWithStrip = nameUser.strip();
         logger.log(Level.INFO, "new nameUser from strip: {0}", newStringWithStrip);
 
+        // format: Returns a formatted string using the given arguments.
+        logger.log(Level.INFO, "---format in Java---");
+        // format is used to create a new string that is a formatted string using the
+        // given arguments.
+        var newStringWithFormat = String.format("The name of the user is %s", nameUser);
+        logger.log(Level.INFO, "new newStringWithFormat from format: {0}", newStringWithFormat);
+
+        // formatted: Formats using this string as the format string, and the supplied arguments.
+        logger.log(Level.INFO, "---formatted in Java---");
+        // This method is equivalent to String.format(this, args)
+        var valueWithOutFormat = 343.5676768;
+        var formatString = "the value using formatted is: %.2f";
+        logger.log(Level.INFO, formatString.formatted(valueWithOutFormat));
     }
 }

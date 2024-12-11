@@ -6,7 +6,6 @@ public class App {
 
     static final Logger logger = Logger.getLogger(App.class.getName());
     static final String DOT_LINES = "---------------------------";
-
     @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) {
 

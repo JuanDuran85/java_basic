@@ -71,7 +71,7 @@ public class App {
         logger.log(Level.INFO, "Use while loop in Java to count from 0 to 9.");
         num = 0;
         while (num < 10) {
-            logger.log(Level.INFO, "Number is: {0}", num);
+            logger.log(Level.INFO, "Number is equal to: {0}", num);
             num++;
         }
         logger.log(Level.INFO, DOT_LINES_TH);

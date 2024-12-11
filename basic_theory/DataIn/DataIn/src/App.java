@@ -40,12 +40,33 @@ public class App {
         String lastName = scanner.nextLine();
 
         logger.log(Level.INFO, DOT_LINES);
-        scanner.close();
 
         logger.log(Level.INFO, "Name: {0}", name);
         logger.log(Level.INFO, "Last Name: {0}", lastName);
         logger.log(Level.INFO, "Age: {0}", age);
         logger.log(Level.INFO, "Height: {0}", height);
 
+        logger.log(Level.INFO, DOT_LINES);
+        logger.log(Level.INFO, "-------- Data Conversion with Scanner Methods --------");
+        logger.log(Level.INFO, DOT_LINES);
+
+        logger.log(Level.INFO, "Enter a whole number: ");
+        String wholeNumberString = scanner.nextLine();
+        int wholeNumber = Integer.parseInt(wholeNumberString);
+        // parseInt() method converts the string argument to an integer.
+        logger.log(Level.INFO, "Whole Number: {0}", wholeNumber);
+
+        logger.log(Level.INFO, "Enter your weight: ");
+        String weightString = scanner.nextLine();
+        double weight = Double.parseDouble(weightString);
+        // parseDouble() method converts the string argument to a double.
+        logger.log(Level.INFO, "Weight: {0}", weight);
+
+        logger.log(Level.INFO, "Enter a decimal number: ");
+        float decimalNumber = Float.parseFloat(scanner.nextLine());
+        // parseFloat() method converts the string argument to a float.
+        logger.log(Level.INFO, "Decimal Number: {0}", decimalNumber);
+
+        scanner.close(); // close the scanner
     }
 }

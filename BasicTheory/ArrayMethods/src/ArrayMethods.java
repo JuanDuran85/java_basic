@@ -32,5 +32,32 @@ public class ArrayMethods {
        for (int num : array3) {
            logger.info("Number: " + num);
        }
+
+       logger.info(DOT_LINES);
+
+       logger.info("---Multi-Dimensional Arrays in Java---");
+       logger.info(DOT_LINES);
+
+        logger.info("Different ways to create a multi-dimensional array:");
+        int[][] multiArray = new int[2][3];
+        int[][] multiArray2 = {{1, 2, 3}, {4, 5, 6}};
+        int[][] multiArray3 = new int[][] {{1, 2, 3}, {4, 5, 6}};
+
+        logger.info("Multi-dimensional array elements created:");
+        logger.info("multiArray: " + multiArray);
+        logger.info("multiArray2: " + multiArray2);
+        logger.info("multiArray3: " + multiArray3);
+
+        logger.info(DOT_LINES);
+        logger.info("--- multi-dimensional Arrays iteration in Java---");
+        logger.info(DOT_LINES);
+
+        for (int[] row : multiArray2) {
+            for (int num : row) {
+                logger.info("Number: " + num);
+            }
+        }
+
+        logger.info(DOT_LINES);
     }
 }

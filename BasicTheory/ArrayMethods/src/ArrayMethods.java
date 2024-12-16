@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 public class ArrayMethods {
     static final Logger logger = Logger.getLogger(ArrayMethods.class.getName());
-    static final String DOT_LINES = "---------------------------";
+    static final String DOT_LINES = "------------------------------------------------------";
 
     public static void main(String[] args) {
         logger.info(DOT_LINES);
@@ -62,7 +62,16 @@ public class ArrayMethods {
         logger.info(DOT_LINES);
 
         logger.info(DOT_LINES);
-        logger.info("--- Arrays method ---");
+        logger.info("------------------// Arrays Method //------------------");
+        logger.info(DOT_LINES);
+
+        // toString method: returns a string representation of the array
+        logger.info(DOT_LINES);
+        logger.info("Converting array to string with toString method:");
+        logger.info(DOT_LINES);
+
+        logger.log(Level.INFO, "array.toString(): {0}", Arrays.toString(array));
+
         logger.info(DOT_LINES);
 
         // compare method: returns 0 if the arrays are equal, 1 if the arrays are not equal
@@ -124,10 +133,25 @@ public class ArrayMethods {
         logger.log(Level.INFO, "Original sortArray: {0}", Arrays.toString(sortArray));
         Arrays.sort(sortArray);
         logger.log(Level.INFO, "sortArray: {0}", Arrays.toString(sortArray));
+        int[] sortArray2 = new int[] { 3, 2, 1, 30, 40, 2, 5, 6,20, 17, 25 };
+        Arrays.sort(sortArray2, 1, 4);
+        logger.log(Level.INFO, "sortArray: {0}", Arrays.toString(sortArray2));
 
         logger.info(DOT_LINES);
 
+        // binarySearch method: returns the index of the specified element in the specified array
+        logger.info(DOT_LINES);
+        logger.info("Searching an array using binarySearch method:");
+        logger.info(DOT_LINES);
+        // This method searches the specified array of the given data type for the specified value using the binary search algorithm. The array must be sorted by the Arrays.sort() method before making this call. If it is not sorted, the results are undefined. The index of the element is returned, or -1 if the specified value is not found.
+        int[] binarySearchArray = new int[] { 3, 2, 1, 30, 40, 2, 5, 6,20, 17, 25 };
+        Arrays.sort(binarySearchArray);
+        logger.log(Level.INFO, "binarySearchArray: {0}", Arrays.toString(binarySearchArray));
+        logger.log(Level.INFO, "binarySearchArray.indexOf(30): {0}", Arrays.binarySearch(binarySearchArray, 30));
+        logger.log(Level.INFO, "binarySearchArray.indexOf(2): {0}", Arrays.binarySearch(binarySearchArray, 2));
+        logger.log(Level.INFO, "binarySearchArray.indexOf(7): {0}", Arrays.binarySearch(binarySearchArray, 7));
 
+        logger.info(DOT_LINES);
         
     }
 }

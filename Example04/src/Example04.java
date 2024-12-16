@@ -32,10 +32,19 @@ public class Example04 {
                         continue;
                     }
                     initialBalance -= fastCash;
+                    System.out.printf("Remaining balance: %.2f%n", initialBalance);
+                    logger.info("Fast Cash successful, retire your money.");
                 }
 
-                case 3 -> // Exit
-                    logger.info("Deposit");
+                case 3 ->
+                    {logger.info("Write a Deposit amount:");
+                    var deposit = scannerConsole.nextDouble();
+                    if (deposit <= 0) {
+                        logger.warning("Invalid amount, try again.");
+                        continue;
+                    }
+                    initialBalance += deposit;
+                }
                 case 4 -> {
                     // Exit
                     logger.info("Exit");

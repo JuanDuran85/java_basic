@@ -152,6 +152,34 @@ public class ArrayMethods {
         logger.log(Level.INFO, "binarySearchArray.indexOf(7): {0}", Arrays.binarySearch(binarySearchArray, 7));
 
         logger.info(DOT_LINES);
+
+        //copyOf method: returns a new array containing a copy of the specified array
+        logger.info(DOT_LINES);
+        logger.info("Copying an array using copyOf method:");
+        logger.info(DOT_LINES);
+        // Arrays.copyOf(array, length): This method returns a copy of the specified array.
+        int[] copyOfArray = new int[] { 3, 2, 1, 30, 40, 2, 5, 6,20, 17, 25 };
+        logger.log(Level.INFO, "copyOfArray: {0}", Arrays.toString(copyOfArray));
+        int[] copyOfArray2 = Arrays.copyOf(copyOfArray, 5);
+        logger.log(Level.INFO, "copyOfArray2: {0}", Arrays.toString(copyOfArray2));
+
+        logger.info(DOT_LINES);
+
+        //mismatch method: returns the index of the first element in the first array that is not equal to the corresponding element in the second array
+        logger.info(DOT_LINES);
+        logger.info("Comparing arrays using mismatch method:");
+        logger.info(DOT_LINES);
+        // Arrays.mismatch(array1, array2): This method returns the index of the first element in the first array that is not equal to the corresponding element in the second array. If the arrays are identical in contents and length, the method returns -1
+        int[] mismatchArray1 = new int[] { 3, 2, 1, 30, 40, 2, 5, 6,20, 17, 25 };
+        int[] mismatchArray2 = new int[] { 3, 2, 1, 30, 40, 2, 5, 6,20, 17, 25 };
+        int[] mismatchArray3 = new int[] { 3, 2, 1, 30, 4, 2, 5, 6,20, 17, 25 };
+        logger.log(Level.INFO, "mismatchArray1: {0}", Arrays.toString(mismatchArray1));
+        logger.log(Level.INFO, "mismatchArray2: {0}", Arrays.toString(mismatchArray2));
+        logger.log(Level.INFO, "mismatchArray3: {0}", Arrays.toString(mismatchArray3));
+        logger.log(Level.INFO, "mismatchArray1: {0}", Arrays.mismatch(mismatchArray1, mismatchArray2));
+        logger.log(Level.INFO, "mismatchArray3: {0}", Arrays.mismatch(mismatchArray1, mismatchArray3));
+
+        logger.info(DOT_LINES);
         
     }
 }

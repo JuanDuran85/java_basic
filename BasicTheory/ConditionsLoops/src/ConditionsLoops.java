@@ -100,5 +100,16 @@ public class ConditionsLoops {
         }
         logger.log(Level.INFO, DOT_LINES_TH);
 
+        logger.log(Level.INFO, DOT_LINES_TH);
+        logger.log(Level.INFO, "---for-each loop in Java---");
+        logger.log(Level.INFO, DOT_LINES_TH);
+
+        logger.log(Level.INFO, "Use for-each loop in Java to print array elements.");
+        int[] array = {1, 2, 3, 4, 5};
+        for (int num2 : array) {
+            logger.log(Level.INFO, "Number is: {0}", num2);
+        }
+        logger.log(Level.INFO, DOT_LINES_TH);
+
     }
 }

@@ -113,6 +113,13 @@ public class StringMethods {
         logger.log(Level.INFO, "old collection11: {0}", collection11);
         logger.log(Level.INFO, "new collection11 with replaced: {0}", newCollection1);
 
+        // repeat: Repeats a specified string a specified number of times.
+        logger.log(Level.INFO, "---repeat in Java---");
+        // repeat is used to repeat a string a specified number of times
+        var newCollection6 = "collection1".repeat(3);
+        logger.log(Level.INFO, "collection1: {0}", collection11);
+        logger.log(Level.INFO, "new collection6 with repeat: {0}", newCollection6);
+
         // toUpperCase: Converts a string to upper case.
         logger.log(Level.INFO, "---toUpperCase in Java---");
         // toUpperCase is used to convert a string to uppercase
@@ -153,8 +160,8 @@ public class StringMethods {
         // indexOf is used to find the index of a character or characters in a string.
         // Use the lastIndexOf method to return the position of the last occurrence of
         // specified character(s) in a string.
-        var newCollection6 = newString1.indexOf("is");
-        logger.log(Level.INFO, "new newString1 with indexOf: {0}", newCollection6);
+        var newCollection11 = newString1.indexOf("is");
+        logger.log(Level.INFO, "new newString1 with indexOf: {0}", newCollection11);
 
         // lastIndexOf: Returns the index within this string of the last occurrence of
         // the specified character or Returns the position of the last found occurrence

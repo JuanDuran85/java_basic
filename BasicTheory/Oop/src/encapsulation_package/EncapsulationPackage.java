@@ -1,8 +1,8 @@
-package BasicTheory.Oop.src.Encapsulation;
+package BasicTheory.Oop.src.encapsulation_package;
 
 import BasicTheory.Oop.src.Oop;
 
-public class Encapsulation {
+public class EncapsulationPackage {
 
     /*
     *

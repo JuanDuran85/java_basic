@@ -1,3 +1,5 @@
+package BasicTheory.Oop.src;
+
 import java.util.logging.Logger;
 
 public class Oop {
@@ -11,8 +13,7 @@ public class Oop {
     // class and not return anything
 
     // Constructor Overloading: means having multiple constructors in the same
-    // class,
-    // each with a different parameter list. st. The constructors are differentiated
+    // class, each with a different parameter list. st. The constructors are differentiated
     // by the number and types of their parameters. This allows you to create
     // objects with varying initial states based on what data is available when the
     // object is instantiated.

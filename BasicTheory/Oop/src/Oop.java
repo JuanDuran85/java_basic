@@ -113,4 +113,8 @@ public class Oop {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public void getAllDataPersonal() {
+        System.out.println("Name: " + this.name + "\nAge: " + this.age + "\nWeight: " + this.weight + "\nGender: " + this.gender + "\nAddress: " + this.address);
+    }
 }

@@ -1,5 +1,7 @@
 package BasicTheory.Oop.src.Encapsulation;
 
+import BasicTheory.Oop.src.Oop;
+
 public class Encapsulation {
 
     /*
@@ -10,6 +12,10 @@ public class Encapsulation {
     *
     */
     public static void main(String[] args) {
-
+        var oopFromPackage = new Oop("Daffa", 20, 50.5, 'M', "Jakarta");
+        oopFromPackage.getAllDataPersonal();
+        oopFromPackage.setName("Daffa Update");
+        var nameSave = oopFromPackage.getName();
+        System.out.println("Name after update: " + nameSave);
     }
 }

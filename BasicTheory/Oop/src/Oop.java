@@ -40,11 +40,21 @@ public class Oop {
         logger.info(DOT_LINES);
     }
 
+    public void plusInteger(int valueIn1, int valueIn2) {
+        logger.info(DOT_LINES);
+        logger.info("---Object-Oriented Programming (OOP)---");
+        logger.info(Integer.toString(valueIn1 + valueIn2));
+        logger.info(DOT_LINES);
+    }
+
     public static void main(String[] args) {
         Oop oop = new Oop(3, 5);
+        System.out.println("Memory Dir: " + oop);
         oop.showData(oop.ope1, oop.ope2);
+        oop.plusInteger(oop.ope1, oop.ope2);
 
         Oop oop2 = new Oop();
         oop2.showData(0, 0);
+        oop2.plusInteger(0, 0);
     }
 }

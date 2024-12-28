@@ -17,5 +17,7 @@ public class EncapsulationPackage {
         oopFromPackage.setName("Daffa Update");
         var nameSave = oopFromPackage.getName();
         System.out.println("Name after update: " + nameSave);
+
+        System.out.println(oopFromPackage);
     }
 }

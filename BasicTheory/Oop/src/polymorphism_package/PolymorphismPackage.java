@@ -2,6 +2,13 @@ package BasicTheory.Oop.src.polymorphism_package;
 
 
 class Animals {
+
+    public static int getNumberOfAnimals = 0;
+
+    public Animals() {
+        Animals.getNumberOfAnimals++;
+    }
+
     protected void makeSound() {
         System.out.println("Animal makes a sound");
     }
@@ -36,8 +43,9 @@ public class PolymorphismPackage {
         System.out.println("From the soundTest method");
         animals.makeSound();
     }
-    
+
     public static void main(String[] args) {
+        System.out.printf("number of Animals used: %d\n", Animals.getNumberOfAnimals);
         Animals animal = new Animals();
         animal.makeSound();
         soundTest(animal);
@@ -49,5 +57,6 @@ public class PolymorphismPackage {
         Cat cat = new Cat();
         cat.makeSound();
         soundTest(cat);
+        System.out.printf("number of Animals used: %d\n", Animals.getNumberOfAnimals);
     }
 }

@@ -8,6 +8,7 @@ public class InheritancePackage {
     * * subclass (child) - the class that inherits from another class
     * * superclass (parent) - the class being inherited from
     * To inherit from a class, use the extends keyword.
+    * Every class in Java has the Object class as a superclass.
     */
 
     public void inheritanceMethod(){

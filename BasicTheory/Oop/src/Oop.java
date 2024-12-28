@@ -18,10 +18,20 @@ public class Oop {
     // class and not return anything
     // Constructor Overloading: means having multiple constructors in the same
     // class, each with a different parameter list. st. The constructors are
-    // differentiated
-    // by the number and types of their parameters. This allows you to create
-    // objects with varying initial states based on what data is available when the
-    // object is instantiated.
+    // differentiated by the number and types of their parameters. This allows you to create
+    // objects with varying initial states based on what data is available when the object is instantiated.
+
+    // static and dynamic contexts
+    // Static context defines items that are needed to prepare executables, items such as the names and types of
+    // external variables and functions that will be available at run time as well as compilation modes like
+    // backwards compatibility, math mode, and so on. These items do not change across invocations. Is the same when we define a class. This context, can not access the dynamic context
+
+    // The dynamic context is used to configure execution-time characteristics.
+    // Dynamic context defines items that are unique to each invocation of an executable, items such as the values
+    // for external variables, external function implementations, and resolvers to external inputs or results. These
+    // items might change across invocations. When you create and object, it is created in the dynamic context. From this context, we can access the static context.
+
+
     public Oop() {
         logger.info(DOT_LINES);
         logger.info("---Constructor Overloading in Java---");
@@ -116,5 +126,18 @@ public class Oop {
 
     public void getAllDataPersonal() {
         System.out.println("Name: " + this.name + "\nAge: " + this.age + "\nWeight: " + this.weight + "\nGender: " + this.gender + "\nAddress: " + this.address);
+    }
+
+    @Override
+    public String toString() {
+        return "Oop{" +
+                "ope1=" + ope1 +
+                ", ope2=" + ope2 +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", gender=" + gender +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

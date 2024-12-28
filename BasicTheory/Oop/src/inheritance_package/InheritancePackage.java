@@ -20,12 +20,35 @@ public class InheritancePackage {
     }
 
     public static void main(String[] args) {
-
+        System.out.println("********************************");
     }
 }
 
 class Inheritance extends InheritancePackage {
     public static void main(String[] args) {
         System.out.println("This is an inheritance package.");
+        InheritancePackage inheritance = new InheritancePackage();
+        inheritance.inheritanceMethod();
+        inheritance.protectedInheritanceMethod();
+    }
+
+    @Override
+    public void inheritanceMethod(){
+        System.out.println("This is a public inheritance method from the subclass with override.");
+        super.inheritanceMethod(); // call the superclass method
+    }
+
+    public void customMethod(){
+        System.out.println("This is a custom method from the subclass.");
+    }
+}
+
+
+class TestAllClass {
+    public static void main(String[] args) {
+        Inheritance inheritance = new Inheritance();
+        inheritance.inheritanceMethod();
+        inheritance.protectedInheritanceMethod();
+        inheritance.customMethod();
     }
 }

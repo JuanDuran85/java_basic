@@ -35,5 +35,22 @@ public class ListCollections {
         for (String element : myStringList) {
             System.out.println(element);
         }
+
+
+        /*
+        * A lambda expression is a short block of code which takes in parameters and returns a value.
+        * Lambda expressions are similar to methods, but they do not need a name, and they can be implemented
+        * right in the body of a method.
+        *
+        * Represent instances of functional interfaces (interfaces with a single abstract method).
+        * They provide a concise way to express instances of single-method interfaces using a block of code.
+        *
+        * Some Important points about lambda expressions:
+        * - The body of a lambda expression can contain zero, one, or more statements.
+        * - When there is a single statement curly brackets are not mandatory and the return type of the anonymous function is the same as that of the body expression.
+        * - When there is more than one statement, then these must be enclosed in curly brackets (a code block) and the return type of the anonymous function is the same as the type of the value returned within the code block, or void if nothing is returned.
+        */
+
+
     }
 }

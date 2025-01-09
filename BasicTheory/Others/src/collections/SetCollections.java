@@ -15,7 +15,12 @@ public class SetCollections {
      * on the contracts of all constructors and on the contracts of the add, equals and hashCode methods.
      */
     public static void main(String[] args) {
-        Set<String> mySet = new TreeSet<>();
+        // Creating a set
+        System.out.println(" Creating a set");
+        Set<String> mySet = new TreeSet<>(); // crearing a TreeSet
+
+        // Adding an element
+        System.out.println(" Adding an element");
         mySet.add("Apple");
         mySet.add("Cherry");
         mySet.add("Banana");
@@ -23,6 +28,11 @@ public class SetCollections {
         mySet.add("Apple");
         mySet.add("Apple");
         mySet.add("Cherry");
+        mySet.forEach(System.out::println);
+
+        // removing an element
+        System.out.println(" Removing an element");
+        mySet.remove("Cherry");
         mySet.forEach(System.out::println);
     }
 }

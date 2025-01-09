@@ -1,7 +1,6 @@
 package BasicTheory.Oop.src.abstract_package;
 
 public class AbstractPackage {
-
     /*
      * Data abstraction is the process of hiding certain details and showing only
      * essential information to the user.
@@ -21,20 +20,4 @@ public class AbstractPackage {
         Geometry geometry = new Squared();
         geometry.draw();
     }
-}
-
-// abstract class
-abstract class Geometry {
-    public abstract void draw();
-}
-
-// subclass (inherit from Geometry)
-
-public class Squared extends Geometry {
-
-    @Override
-    public void draw() {
-        System.out.println("Drawing a squared");
-    }
-
 }

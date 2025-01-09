@@ -1,3 +1,5 @@
+package varargs;
+
 public class VarArgs {
     /*
      * Varargs help us avoid writing boilerplate code by introducing the new syntax

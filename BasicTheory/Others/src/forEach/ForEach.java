@@ -1,3 +1,5 @@
+package forEach;
+
 public class ForEach {
     /*
      * The for-each loop in Java (also called the enhanced for loop) was introduced in Java 5 to simplify iteration over arrays and collections.

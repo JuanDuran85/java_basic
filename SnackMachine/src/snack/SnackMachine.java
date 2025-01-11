@@ -20,7 +20,7 @@ public class SnackMachine {
         while (!exit) {
             try {
                 var option = showMenu(consoleIn);
-                //exit = optionsExecution();
+                exit = optionsExecution(option, consoleIn, products);
             } catch (Exception e) {
                 System.out.println("An error occurred: " + e.getMessage());
 
@@ -39,6 +39,9 @@ public class SnackMachine {
                 Choose an option: \s""");
 
         return consoleIn.nextInt();
+    }
+
+    private static boolean optionsExecution(int option, Scanner consoleIn, List<Snack> products) {
     }
 
 }

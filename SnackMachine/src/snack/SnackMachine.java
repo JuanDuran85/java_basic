@@ -33,7 +33,7 @@ public class SnackMachine {
     private static int showMenu(Scanner consoleIn) {
         System.out.print("""
                 1. Buy Snack
-                2. Show Inventory
+                2. Show ticket
                 3. Add Snack
                 4. Exit
                 Choose an option: \s""");
@@ -46,7 +46,7 @@ public class SnackMachine {
         
         switch (option) {
             case  1 -> buySnack(consoleIn, products);
-            
+            case 2 ->   showFinalTicket(products);
         }
         
         return exit;
@@ -73,4 +73,16 @@ public class SnackMachine {
 
     }
 
+    private static void showFinalTicket(List<Snack> products) {
+        String ticket = " *** Snack Machine Ticket *** \n";
+        double total = 0.0;
+
+        for (Snack product : products) {
+            ticket += "\n\t-" + product.getName() + " - $" + product.getPrice();
+            total += product.getPrice();
+        }
+
+        ticket += "\n\nTotal: $" + total;
+        System.out.println(ticket);
+    }
 }

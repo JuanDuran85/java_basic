@@ -47,6 +47,7 @@ public class SnackMachine {
         switch (option) {
             case  1 -> buySnack(consoleIn, products);
             case 2 ->   showFinalTicket(products);
+            case 3 -> addSnackToCart(consoleIn);
         }
         
         return exit;
@@ -78,11 +79,22 @@ public class SnackMachine {
         double total = 0.0;
 
         for (Snack product : products) {
-            ticket += "\n\t-" + product.getName() + " - $" + product.getPrice();
+            ticket += "\n\t- " + product.getName() + " - $" + product.getPrice();
             total += product.getPrice();
         }
 
-        ticket += "\n\nTotal: $" + total;
+        ticket += String.format("\n\tTotal -> $%.2f", total);
         System.out.println(ticket);
+    }
+
+
+    private static void addSnackToCart(Scanner consoleIn) {
+        System.out.println("Enter the snack name: ");
+        String name = consoleIn.nextLine();
+        System.out.println("Enter the snack price: ");
+        double price = Double.parseDouble(consoleIn.nextLine());
+        Snacks.addSnack(new Snack(name, price));
+        System.out.println("Snack added to the inventory");
+        Snacks.showSnack();
     }
 }

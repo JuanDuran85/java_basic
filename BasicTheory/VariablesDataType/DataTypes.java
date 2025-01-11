@@ -86,7 +86,7 @@ public class DataTypes {
         logger.log(Level.INFO, "---Primitive Data Types---");
         /*
          * - Primitive Data Types
-         * A primitive data type specifies the type of a variable and the kind of values
+         * A primitive data type specifies the type of variable and the kind of values
          * it can hold.
          * There are eight primitive data types in Java: byte, short, int, long, float,
          * double, char, and boolean.

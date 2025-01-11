@@ -48,6 +48,10 @@ public class SnackMachine {
             case  1 -> buySnack(consoleIn, products);
             case 2 ->   showFinalTicket(products);
             case 3 -> addSnackToCart(consoleIn);
+            case 4 -> {
+                System.out.println("Thanks for using the Snack Machine");
+                exit = true;
+            }
         }
         
         return exit;
@@ -89,10 +93,10 @@ public class SnackMachine {
 
 
     private static void addSnackToCart(Scanner consoleIn) {
-        System.out.println("Enter the snack name: ");
-        String name = consoleIn.nextLine();
-        System.out.println("Enter the snack price: ");
-        double price = Double.parseDouble(consoleIn.nextLine());
+        System.out.print("Enter the snack name: ");
+        String name = consoleIn.next();
+        System.out.print("Enter the snack price: ");
+        double price = Double.parseDouble(consoleIn.next());
         Snacks.addSnack(new Snack(name, price));
         System.out.println("Snack added to the inventory");
         Snacks.showSnack();

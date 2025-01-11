@@ -54,6 +54,21 @@ public class SnackMachine {
     }
 
     private static void buySnack(Scanner consoleIn, List<Snack> products) {
+
+        System.out.println("Enter the snack id: ");
+        int snackId = Integer.parseInt(consoleIn.next());
+        boolean existingSnackId = false;
+
+        for(Snack snack : Snacks.getSnacks() ) {
+            if(snack.getSnackId() == snackId) {
+                products.add(snack);
+                System.out.println("Snack added to the cart");
+                existingSnackId = true;
+                break;
+            }
+        }
+        
+
     }
 
 }

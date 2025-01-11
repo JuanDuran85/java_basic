@@ -42,6 +42,18 @@ public class SnackMachine {
     }
 
     private static boolean optionsExecution(int option, Scanner consoleIn, List<Snack> products) {
+        var exit = false;
+        
+        switch (option) {
+            case  1 -> buySnack(consoleIn, products);
+            
+        }
+        
+        return exit;
+        
+    }
+
+    private static void buySnack(Scanner consoleIn, List<Snack> products) {
     }
 
 }

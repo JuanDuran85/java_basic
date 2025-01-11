@@ -27,5 +27,23 @@ public class Snacks {
     }
 
 
+    public static void addSnack(Snack snack){
+        snacks.add(snack);
+    }
+
+    public static void showSnack(){
+        StringBuilder inventorySnacks = new StringBuilder();
+
+        for(var snack: snacks){
+            inventorySnacks.append(snack.toString()).append("\n");
+        }
+
+        System.out.println(" ------- Snacks Inventory ------- ");
+        System.out.println(inventorySnacks);
+    }
+
+    public static List<Snack> getSnacks(){
+        return snacks;
+    }
 
 }

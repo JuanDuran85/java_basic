@@ -4,17 +4,17 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class Snack implements Serializable {
+
     private static int snackCount = 0;
     private final int snackId;
     private String name;
     private double price;
 
-
-    public Snack(){
+    public Snack() {
         this.snackId = ++Snack.snackCount;
     }
 
-    public Snack (String name, double price) {
+    public Snack(String name, double price) {
         this(); // calls the default or empty constructor
         this.name = name;
         this.price = price;
@@ -46,16 +46,18 @@ public class Snack implements Serializable {
 
     @Override
     public String toString() {
-        return "Snack{" +
-                "snackId=" + snackId +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+        return "Snack{"
+                + "snackId=" + snackId
+                + ", name='" + name + '\''
+                + ", price=" + price
+                + '}';
     }
 
     @Override
     public boolean equals(Object o) { // Indicates whether some other object is "equal to" this one.
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Snack snack = (Snack) o;
         return snackId == snack.snackId && Double.compare(this.price, snack.price) == 0 && Objects.equals(this.name, snack.name);
     }

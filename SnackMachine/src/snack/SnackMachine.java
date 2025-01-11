@@ -5,12 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SnackMachine {
+
     public static void main(String[] args) {
         snackMachine();
     }
 
-    public static void snackMachine(){
-        boolean exit =  false;
+    public static void snackMachine() {
+        boolean exit = false;
         Scanner consoleIn = new Scanner(System.in);
         // create a snack list products
         List<Snack> products = new ArrayList<>();
@@ -36,36 +37,40 @@ public class SnackMachine {
                 2. Show ticket
                 3. Add Snack
                 4. Exit
-                Choose an option: \s""");
+                Choose an option:\s""");
 
-        return consoleIn.nextInt();
+        return Integer.parseInt(consoleIn.nextLine());
     }
 
     private static boolean optionsExecution(int option, Scanner consoleIn, List<Snack> products) {
         var exit = false;
-        
+
         switch (option) {
-            case  1 -> buySnack(consoleIn, products);
-            case 2 ->   showFinalTicket(products);
-            case 3 -> addSnackToCart(consoleIn);
+            case 1 ->
+                buySnack(consoleIn, products);
+            case 2 ->
+                showFinalTicket(products);
+            case 3 ->
+                addSnackToCart(consoleIn);
             case 4 -> {
                 System.out.println("Thanks for using the Snack Machine");
                 exit = true;
             }
-            default -> System.out.println("Invalid option, please try again");
+            default ->
+                System.out.println("Invalid option, please try again");
         }
-        
+
         return exit;
     }
 
     private static void buySnack(Scanner consoleIn, List<Snack> products) {
 
-        System.out.println("Enter the snack id: ");
-        int snackId = Integer.parseInt(consoleIn.next());
+        System.out.println("Enter the snack id");
+        int snackId = Integer.parseInt(consoleIn.nextLine());
         boolean existingSnackId = false;
 
-        for(Snack snack : Snacks.getSnacks() ) {
-            if(snack.getSnackId() == snackId) {
+        for (Snack snack : Snacks.getSnacks()) {
+            if (snack.getSnackId() == snackId) {
                 products.add(snack);
                 System.out.println("Snack added to the cart");
                 existingSnackId = true;
@@ -76,7 +81,6 @@ public class SnackMachine {
         if (!existingSnackId) {
             System.out.println("Snack not found: " + snackId);
         }
-
     }
 
     private static void showFinalTicket(List<Snack> products) {
@@ -91,7 +95,6 @@ public class SnackMachine {
         ticket += String.format("\n\tTotal -> $%.2f", total);
         System.out.println(ticket);
     }
-
 
     private static void addSnackToCart(Scanner consoleIn) {
         System.out.print("Enter the snack name: ");

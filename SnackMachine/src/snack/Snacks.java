@@ -9,9 +9,10 @@ public class Snacks {
 
     // static block to initialize the snacks list
     /*
-    * In Java, a static block executes code before the object initialization. A static block is a block of code with a static keyword
-    * 
-    */
+     * In Java, a static block executes code before the object initialization. A
+     * static block is a block of code with a static keyword
+     *
+     */
     static {
         snacks = new ArrayList<>();
         snacks.add(new Snack("Chips", 1.99));
@@ -26,15 +27,14 @@ public class Snacks {
         snacks.add(new Snack("Popcorn", 1.99));
     }
 
-
-    public static void addSnack(Snack snack){
+    public static void addSnack(Snack snack) {
         snacks.add(snack);
     }
 
-    public static void showSnack(){
+    public static void showSnack() {
         StringBuilder inventorySnacks = new StringBuilder();
 
-        for(var snack: snacks){
+        for (var snack : snacks) {
             inventorySnacks.append(snack.toString()).append("\n");
         }
 
@@ -42,7 +42,7 @@ public class Snacks {
         System.out.println(inventorySnacks);
     }
 
-    public static List<Snack> getSnacks(){
+    public static List<Snack> getSnacks() {
         return snacks;
     }
 

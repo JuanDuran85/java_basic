@@ -50,7 +50,6 @@ public class SnackMachine {
         }
         
         return exit;
-        
     }
 
     private static void buySnack(Scanner consoleIn, List<Snack> products) {
@@ -67,7 +66,10 @@ public class SnackMachine {
                 break;
             }
         }
-        
+
+        if (!existingSnackId) {
+            System.out.println("Snack not found: " + snackId);
+        }
 
     }
 

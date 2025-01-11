@@ -52,6 +52,7 @@ public class SnackMachine {
                 System.out.println("Thanks for using the Snack Machine");
                 exit = true;
             }
+            default -> System.out.println("Invalid option, please try again");
         }
         
         return exit;

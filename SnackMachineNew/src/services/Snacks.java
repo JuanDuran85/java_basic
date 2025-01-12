@@ -1,4 +1,6 @@
-package SnackMachineNew.src.snacks;
+package SnackMachineNew.src.services;
+
+import SnackMachineNew.src.domain.Snack;
 
 import java.util.ArrayList;
 import java.util.List;

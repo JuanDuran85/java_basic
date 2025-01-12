@@ -53,6 +53,10 @@ public class Snack implements Serializable {
                 + '}';
     }
 
+    public String snackWriter() {
+        return this.snackId + "," + this.name + "," + this.price;
+    }
+
     @Override
     public boolean equals(Object o) { // Indicates whether some other object is "equal to" this one.
         if (o == null || getClass() != o.getClass()) {

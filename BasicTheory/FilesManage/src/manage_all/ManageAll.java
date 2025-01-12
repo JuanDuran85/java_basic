@@ -9,7 +9,7 @@ public class ManageAll {
     public static void main(String[] args) {
         System.out.println(" *** Working with Files with NIO***");
 
-        var fileName = "my_file.txt";
+        String fileName = "my_file.txt";
 
         try {
             List<String> linesFromFile = Files.readAllLines(Paths.get(fileName));

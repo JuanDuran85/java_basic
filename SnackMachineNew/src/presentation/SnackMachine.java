@@ -1,7 +1,8 @@
 package SnackMachineNew.src.presentation;
 
 import SnackMachineNew.src.domain.Snack;
-import SnackMachineNew.src.services.Snacks;
+import SnackMachineNew.src.services.IServiceSnacks;
+import SnackMachineNew.src.services.ListSnackServices;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +17,18 @@ public class SnackMachine {
     public static void snackMachine() {
         boolean exit = false;
         Scanner consoleIn = new Scanner(System.in);
+        // create a listSnackServices object
+        IServiceSnacks snackServices = new ListSnackServices();
+
         // create a snack list products
         List<Snack> products = new ArrayList<>();
         System.out.println("*** Welcome to the Snack Machine ***");
-        Snacks.showSnack();
+        snackServices.showSnack();
 
         while (!exit) {
             try {
                 var option = showMenu(consoleIn);
-                exit = optionsExecution(option, consoleIn, products);
+                exit = optionsExecution(option, consoleIn, products, snackServices);
             } catch (Exception e) {
                 System.out.println("An error occurred: " + e.getMessage());
 
@@ -45,16 +49,16 @@ public class SnackMachine {
         return Integer.parseInt(consoleIn.nextLine());
     }
 
-    private static boolean optionsExecution(int option, Scanner consoleIn, List<Snack> products) {
+    private static boolean optionsExecution(int option, Scanner consoleIn, List<Snack> products, IServiceSnacks snackServices) {
         var exit = false;
 
         switch (option) {
             case 1 ->
-                buySnack(consoleIn, products);
+                buySnack(consoleIn, products, snackServices);
             case 2 ->
                 showFinalTicket(products);
             case 3 ->
-                addSnackToCart(consoleIn);
+                addSnackToCart(consoleIn,  snackServices);
             case 4 -> {
                 System.out.println("Thanks for using the Snack Machine");
                 exit = true;
@@ -66,13 +70,13 @@ public class SnackMachine {
         return exit;
     }
 
-    private static void buySnack(Scanner consoleIn, List<Snack> products) {
+    private static void buySnack(Scanner consoleIn, List<Snack> products,  IServiceSnacks snackServices) {
 
         System.out.println("Enter the snack id");
         int snackId = Integer.parseInt(consoleIn.nextLine());
         boolean existingSnackId = false;
 
-        for (Snack snack : Snacks.getSnacks()) {
+        for (Snack snack : snackServices.getSnacks()) {
             if (snack.getSnackId() == snackId) {
                 products.add(snack);
                 System.out.println("Snack added to the cart");
@@ -99,13 +103,13 @@ public class SnackMachine {
         System.out.println(ticket);
     }
 
-    private static void addSnackToCart(Scanner consoleIn) {
+    private static void addSnackToCart(Scanner consoleIn,  IServiceSnacks snackServices) {
         System.out.print("Enter the snack name: ");
         String name = consoleIn.next();
         System.out.print("Enter the snack price: ");
         double price = Double.parseDouble(consoleIn.next());
-        Snacks.addSnack(new Snack(name, price));
+        snackServices.addSnack(new Snack(name, price));
         System.out.println("Snack added to the inventory");
-        Snacks.showSnack();
+        snackServices.showSnack();
     }
 }

@@ -1,0 +1,6 @@
+first
+lines
+on
+file
+new
+content

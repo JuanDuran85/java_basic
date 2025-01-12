@@ -14,13 +14,13 @@ public class Writing {
         try {
             addingNewLines = fileCreated.exists();
             PrintWriter outFile = new PrintWriter(new FileWriter(fileCreated, addingNewLines));
-            var newContent = "new\ncontent";
+            var newContent = "new\ncontent\ntwo";
             outFile.println(newContent);
             outFile.close();
             System.out.println("File updated.");
         } catch (Exception e) {
-            System.out.println("An error occurred: " + e);
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace();
         }
-
     }
 }

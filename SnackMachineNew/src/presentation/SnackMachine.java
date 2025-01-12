@@ -1,6 +1,7 @@
 package SnackMachineNew.src.presentation;
 
 import SnackMachineNew.src.domain.Snack;
+import SnackMachineNew.src.services.FileSnackServices;
 import SnackMachineNew.src.services.IServiceSnacks;
 import SnackMachineNew.src.services.ListSnackServices;
 
@@ -17,8 +18,10 @@ public class SnackMachine {
     public static void snackMachine() {
         boolean exit = false;
         Scanner consoleIn = new Scanner(System.in);
+
         // create a listSnackServices object
-        IServiceSnacks snackServices = new ListSnackServices();
+        // IServiceSnacks snackServices = new ListSnackServices();
+        IServiceSnacks snackServices = new FileSnackServices();
 
         // create a snack list products
         List<Snack> products = new ArrayList<>();

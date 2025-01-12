@@ -46,7 +46,8 @@ public class SnackMachine {
                 1. Buy Snack
                 2. Show ticket
                 3. Add Snack
-                4. Exit
+                4. Show Inventory
+                5. Exit
                 Choose an option:\s""");
 
         return Integer.parseInt(consoleIn.nextLine());
@@ -62,7 +63,8 @@ public class SnackMachine {
                 showFinalTicket(products);
             case 3 ->
                 addSnackToCart(consoleIn,  snackServices);
-            case 4 -> {
+            case 4 -> showSnackAvailable(consoleIn, snackServices);
+            case 5 -> {
                 System.out.println("Thanks for using the Snack Machine");
                 exit = true;
             }
@@ -71,6 +73,10 @@ public class SnackMachine {
         }
 
         return exit;
+    }
+
+    private static void showSnackAvailable(Scanner consoleIn, IServiceSnacks snackServices) {
+        snackServices.showSnack();
     }
 
     private static void buySnack(Scanner consoleIn, List<Snack> products,  IServiceSnacks snackServices) {

@@ -2,3 +2,4 @@
 2,Candy,0.99
 3,Soda,2.49
 4,lolyPop,1.19
+5,nachos,9.99

@@ -3,7 +3,8 @@ package zone_fit.connection;
 import java.sql.DriverManager;
 
 public class Connection {
-    public static java.sql.Connection getConexion(){
+
+    public static java.sql.Connection getConexion() {
         java.sql.Connection connection = null;
         String dbName = "zona_fit_db";
         String url = "jdbc:mysql://localhost:3306/" + dbName;
@@ -16,13 +17,13 @@ public class Connection {
         } catch (Exception e) {
             System.out.println("Connection Error: " + e.getMessage());
         }
-        
+
         return connection;
     }
 
     public static void main(String[] args) {
         var connection = Connection.getConexion();
-        if (connection != null){
+        if (connection != null) {
             System.out.println("Connection success: " + connection);
         } else {
             System.out.println("Connection failed");

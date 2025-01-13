@@ -74,6 +74,29 @@ public class ClientDAO implements IClientDAO {
 
     @Override
     public boolean addClient(Client client) {
+        PreparedStatement ps;
+
+        Connection connection = getConexion();
+        String sql = "INSERT INTO clients (name, last_name, membership) VALUES (?, ?, ?)";
+
+        try {
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, client.getName());
+            ps.setString(2, client.getLastName());
+            ps.setInt(3, client.getMembershipId());
+            ps.execute();
+            
+            return true;
+        } catch (Exception e) {
+            System.out.println("Add Client Error: " + e.getMessage());
+        } finally {
+            try {
+                connection.close();
+            } catch (Exception e) {
+                System.out.println("Connection Error: " + e.getMessage());
+            }
+        }
+
         return false;
     }
 
@@ -92,9 +115,9 @@ public class ClientDAO implements IClientDAO {
         IClientDAO clientDAO = new ClientDAO();
         clientDAO.listClients().forEach(System.out::println);
 
-        var clientOne = new Client(1);
+        Client clientOne = new Client(1);
         System.out.println("--- Get Client by ID: ---" + clientOne);
-        var clientFound = clientDAO.getClientById(clientOne);
+        boolean clientFound = clientDAO.getClientById(clientOne);
         if (clientFound){
             System.out.println(clientOne);
         } else {

@@ -164,27 +164,27 @@ public class ClientDAO implements IClientDAO {
             System.out.println("Client not found");
         }
 
-//        Client clientTwo = new Client("Marta", "Solar", 222);
-//        System.out.println("--- Add Client ---" + clientTwo);
-//        boolean addingClient = clientDAO.addClient(clientTwo);
-//        if (addingClient) {
-//            System.out.println("Client added");
-//        } else {
-//            System.out.println("Client not added");
-//        }
-//
-//        System.out.println("--- Client List ---");
-//        IClientDAO clientDAONew = new ClientDAO();
-//        clientDAONew.listClients().forEach(System.out::println);
-//
-//        System.out.println("--- Update Client ---");
-//        Client updateClient = new Client(2, "Maria", "Medina", 150);
-//        boolean result = clientDAO.updateClient(updateClient);
-//        if (result) {
-//            System.out.println("Client updated");
-//        } else {
-//            System.out.println("Client not updated");
-//        }
+        Client clientTwo = new Client("Marta", "Solar", 222);
+        System.out.println("--- Add Client ---" + clientTwo);
+        boolean addingClient = clientDAO.addClient(clientTwo);
+        if (addingClient) {
+            System.out.println("Client added");
+        } else {
+            System.out.println("Client not added");
+        }
+
+        System.out.println("--- Client List ---");
+        IClientDAO clientDAONew = new ClientDAO();
+        clientDAONew.listClients().forEach(System.out::println);
+
+        System.out.println("--- Update Client ---");
+        Client updateClient = new Client(2, "Maria", "Medina", 150);
+        boolean result = clientDAO.updateClient(updateClient);
+        if (result) {
+            System.out.println("Client updated");
+        } else {
+            System.out.println("Client not updated");
+        }
 
         System.out.println("--- Client List ---");
         IClientDAO clientDAO3 = new ClientDAO();

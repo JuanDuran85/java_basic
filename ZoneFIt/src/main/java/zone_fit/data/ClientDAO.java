@@ -85,7 +85,7 @@ public class ClientDAO implements IClientDAO {
             ps.setString(2, client.getLastName());
             ps.setInt(3, client.getMembershipId());
             ps.execute();
-            
+
             return true;
         } catch (Exception e) {
             System.out.println("Add Client Error: " + e.getMessage());
@@ -123,5 +123,18 @@ public class ClientDAO implements IClientDAO {
         } else {
             System.out.println("Client not found");
         }
+
+        Client clientTwo = new Client("Juan", "Perez", 134);
+        System.out.println("--- Add Client ---" + clientTwo);
+        boolean addingClient = clientDAO.addClient(clientTwo);
+        if (addingClient){
+            System.out.println("Client added");
+        } else {
+            System.out.println("Client not added");
+        }
+
+        System.out.println("--- Client List ---");
+        IClientDAO clientDAONew = new ClientDAO();
+        clientDAONew.listClients().forEach(System.out::println);
     }
 }

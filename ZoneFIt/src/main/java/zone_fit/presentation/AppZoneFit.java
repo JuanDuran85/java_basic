@@ -1,11 +1,11 @@
 package zone_fit.presentation;
 
+import java.util.List;
+import java.util.Scanner;
+
 import zone_fit.data.ClientDAO;
 import zone_fit.data.IClientDAO;
 import zone_fit.domain.Client;
-
-import java.util.List;
-import java.util.Scanner;
 
 public class AppZoneFit {
 
@@ -35,18 +35,24 @@ public class AppZoneFit {
     private static boolean menuOptionExecution(int option, Scanner console, IClientDAO clientDaoObject) {
         boolean exitMenu = false;
         switch (option) {
-            case 1 -> showAllClients(clientDaoObject);
-            case 2 -> addClient(clientDaoObject, console);
-            case 3 -> updateClient(clientDaoObject, console);
-            case 4 -> deleteClient(clientDaoObject, console);
-            case 5 -> getClientById(clientDaoObject, console);
+            case 1 ->
+                showAllClients(clientDaoObject);
+            case 2 ->
+                addClient(clientDaoObject, console);
+            case 3 ->
+                updateClient(clientDaoObject, console);
+            case 4 ->
+                deleteClient(clientDaoObject, console);
+            case 5 ->
+                getClientById(clientDaoObject, console);
             case 6 -> {
                 System.out.println("Good bye!");
                 return true;
             }
-            default -> System.out.println("Invalid option. Please try again.");
+            default ->
+                System.out.println("Invalid option. Please try again.");
         }
-    return exitMenu;
+        return exitMenu;
     }
 
     private static void updateClient(IClientDAO clientDaoObject, Scanner console) {

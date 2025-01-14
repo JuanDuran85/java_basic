@@ -60,7 +60,12 @@ public class AppZoneFit {
         System.out.print("Enter the new membership ID: ");
         int newMembershipId = Integer.parseInt(console.next());
         Client clientToUpdate = new Client(idToUpdate, newName, lastName, newMembershipId);
-    
+        boolean resultUpdateClient = clientDaoObject.updateClient(clientToUpdate);
+        if (resultUpdateClient) {
+            System.out.println("Client updated successfully: " + clientToUpdate);
+        } else {
+            System.out.println("Error updating client: " + clientToUpdate);
+        }
     }
 
     private static void deleteClient(IClientDAO clientDaoObject, Scanner console) {

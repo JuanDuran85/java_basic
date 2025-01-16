@@ -61,6 +61,8 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 		switch (option) {
 			case 1 -> showAllClients();
 			case 2 -> addClient(console);
+			case 3 -> updateClient(console);
+			case 4 -> deleteClient(console);
 			case 5 -> getClientById(console);
 			case 6 -> {
 				logger.info("Exit the application...");
@@ -71,12 +73,43 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 		return exitMenu;
 	}
 
-	private void getClientById(Scanner console) {
-		logger.info("\n-------Get Client by ID-------\n");
-		logger.info("Enter the ID of the client: ");
+	private void deleteClient(Scanner console) {
+		logger.info("\n-------Delete one Client-------\n");
+        logger.info("Enter the ID of the client to delete: ");
+        Integer idClient = Integer.parseInt(console.next());
+        Client clientFound = clientService.findClientById(idClient);
+
+        if(clientFound!= null) {
+            clientService.deleteClient(clientFound);
+            logger.info("Client deleted: {}", clientFound);
+        } else {
+            logger.info("Client not found with ID, cannot be deleted: {}", idClient);
+        }
+	}
+
+	private void updateClient(Scanner console) {
+		logger.info("\n-------Update one Client-------\n");
+		logger.info("Enter the ID of the client to find: ");
 		Integer idClient = Integer.parseInt(console.next());
-		Client client = clientService.findClientById(idClient);
-		logger.info("Client found: {}", client);
+		Client clientFound = clientService.findClientById(idClient);
+
+		if(clientFound != null) {
+			logger.info("Enter the new name of the client: ");
+			String name = console.next();
+			logger.info("Enter the new last name of the client: ");
+			String lastName = console.next();
+			logger.info("Enter the new membership ID of the client: ");
+			Integer membershipId = Integer.parseInt(console.next());
+			Client client = new Client();
+			client.setId(idClient);
+			client.setName(name);
+			client.setLastName(lastName);
+			client.setMembershipId(membershipId);
+			clientService.updateOrSaveClient(client);
+			logger.info("Client updated: {}", client);
+		} else {
+			logger.info("Client not found with ID: {}", idClient);
+		}
 	}
 
 	private int showMenu(Scanner console) {
@@ -107,7 +140,18 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 		logger.info("Enter the membership ID of the client: ");
 		Integer membershipId = Integer.parseInt(console.next());
 		Client client = new Client();
+		client.setName(name);
+		client.setLastName(lastName);
+		client.setMembershipId(membershipId);
 		clientService.updateOrSaveClient(client);
 		logger.info("Client added: {}", client);
+	}
+
+	private void getClientById(Scanner console) {
+		logger.info("\n-------Get Client by ID-------\n");
+		logger.info("Enter the ID of the client: ");
+		Integer idClient = Integer.parseInt(console.next());
+		Client client = clientService.findClientById(idClient);
+		logger.info("Client found: {}", client);
 	}
 }

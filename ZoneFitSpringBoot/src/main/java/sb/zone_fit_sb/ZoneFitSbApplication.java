@@ -19,7 +19,11 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 	private IClientService clientService;
 
 	private static final Logger logger = LoggerFactory.getLogger(ZoneFitSbApplication.class);
-	private final String Nl = System.lineSeparator();
+	private final String nL = System.lineSeparator();
+
+	public ZoneFitSbApplication(IClientService clientService) {
+		this.clientService = clientService;
+	}
 
 	public static void main(String[] args) {
 		// spring boot application started
@@ -30,7 +34,7 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) {
 		logger.info("---------// ZoneFitSbApplication //---------.");
 		zoneFitSb();
 	}
@@ -43,11 +47,11 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 			try {
 				int option = showMenu(console);
 				exit = menuOptionExecution(option, console);
-				logger.info("{}", Nl);
+				logger.info("{}", nL);
 			} catch (Exception e) {
 				logger.error("Error: ", e);
 			} finally {
-				logger.info("{}", Nl);
+				logger.info("{}", nL);
 			}
 		}
 	}
@@ -56,6 +60,8 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 		boolean exitMenu = false;
 		switch (option) {
 			case 1 -> showAllClients();
+			case 2 -> addClient(console);
+			case 5 -> getClientById(console);
 			case 6 -> {
 				logger.info("Exit the application...");
 				return true;
@@ -65,10 +71,12 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 		return exitMenu;
 	}
 
-	private void showAllClients() {
-		logger.info("\nList of Clients:\n");
-		List<Client> resultClientList = clientService.findAllClient();
-		resultClientList.forEach(client -> logger.info(client.toString()));
+	private void getClientById(Scanner console) {
+		logger.info("\n-------Get Client by ID-------\n");
+		logger.info("Enter the ID of the client: ");
+		Integer idClient = Integer.parseInt(console.next());
+		Client client = clientService.findClientById(idClient);
+		logger.info("Client found: {}", client);
 	}
 
 	private int showMenu(Scanner console) {
@@ -82,5 +90,24 @@ public class ZoneFitSbApplication implements CommandLineRunner {
 		6. Exit
 		Choose an option:\s""");
 		return Integer.parseInt(console.next());
+	}
+
+	private void showAllClients() {
+		logger.info("\n-------List of Clients-------\n");
+		List<Client> resultClientList = clientService.findAllClient();
+		resultClientList.forEach(client -> logger.info("{}\n",client));
+	}
+
+	private void addClient(Scanner console) {
+		logger.info("\n-------Add one Client-------\n");
+		logger.info("Enter the name of the client: ");
+		String name = console.next();
+		logger.info("Enter the last name of the client: ");
+		String lastName = console.next();
+		logger.info("Enter the membership ID of the client: ");
+		Integer membershipId = Integer.parseInt(console.next());
+		Client client = new Client();
+		clientService.updateOrSaveClient(client);
+		logger.info("Client added: {}", client);
 	}
 }

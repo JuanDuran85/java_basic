@@ -6,7 +6,6 @@ import lombok.*;
 @Entity
 @Table(name = "clients")
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
@@ -22,4 +21,14 @@ public class Client {
 
     @Column(name = "membership")
     private Integer membershipId;
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", membershipId=" + membershipId +
+                '}';
+    }
 }

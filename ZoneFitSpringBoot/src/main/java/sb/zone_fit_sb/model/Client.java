@@ -1,17 +1,14 @@
 package sb.zone_fit_sb.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jdk.jfr.Name;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Table(name = "clients")
 @Data
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @EqualsAndHashCode
 public class Client {
     @Id
@@ -20,8 +17,9 @@ public class Client {
 
     private String name;
 
-    @Name("last_name")
+    @Column(name = "last_name")
     private String lastName;
 
+    @Column(name = "membership")
     private Integer membershipId;
 }

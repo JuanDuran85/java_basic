@@ -12,7 +12,7 @@ import sb.zone_fit_sb.service.IClientService;
 import java.util.List;
 import java.util.Scanner;
 
-@SpringBootApplication
+//@SpringBootApplication
 public class ZoneFitSbApplication implements CommandLineRunner {
 
 	@Autowired

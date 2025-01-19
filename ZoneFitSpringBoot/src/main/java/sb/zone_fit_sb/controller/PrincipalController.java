@@ -3,8 +3,6 @@ package sb.zone_fit_sb.controller;
 import jakarta.annotation.PostConstruct;
 import jakarta.faces.view.ViewScoped;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -33,6 +31,14 @@ public class PrincipalController {
         this.client = client;
     }
 
+    public Client getSelectedClient() {
+        return selectedClient;
+    }
+
+    public void setSelectedClient(Client selectedClient) {
+        this.selectedClient = selectedClient;
+    }
+
     @PostConstruct
     public void init() {
         getData();
@@ -47,12 +53,15 @@ public class PrincipalController {
         }
     }
 
-    public void addClient(){
+    public void addClient() {
         try {
             this.selectedClient = new Client();
+            logger.info("---------***********-----------*********** Client: {}", this.selectedClient);
         } catch (Exception ex) {
             logger.error("Error: {}", ex.getMessage());
         }
     }
+
+
 
 }

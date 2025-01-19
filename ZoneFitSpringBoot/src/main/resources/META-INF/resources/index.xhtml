@@ -1,57 +1,80 @@
 <!DOCTYPE html>
-<h:html xmlns:h="http://xmlns.jcp.org/jsf/html"
-        xmlns:f="http://xmlns.jcp.org/jsf/core"
-        xmlns:p="http://primefaces.org/ui"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://xmlns.jcp.org/jsf/html http://xmlns.jcp.org/jsf/html/jsf-html.xsd">
-    <h:head>
-        <title>Zone Fit with JSF 2.3 + PrimeFaces 6.2</title>
-        <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css"/>
-    </h:head>
-    <h:body>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://xmlns.jcp.org/jsf/html http://xmlns.jcp.org/jsf/html/jsf-html.xsd">
+<h:head>
+    <title>Zone Fit with JSF 2.3 + PrimeFaces 6.2</title>
+    <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css"/>
+</h:head>
+<h:body>
+    <div>
+        <h:form id="client-form">
+            <p:growl id="growlMsg" showDetail="true"/>
+            <div class="card">
+                <p:menubar>
+                    <p:menuitem value="Start" icon="pi pi-fw pi-user" update=":client-form:table-clients"
+                                action="#{principalController.init()}"/>
+                    <p:menuitem value="Add Client" icon="pi pi-fw pi-plus" update=":modal-form:window-client"
+                                actionListener="#{principalController.addClient()}"
+                                oncomplete="PF('modalClientWindow').show()"/>
+                </p:menubar>
+            </div>
+            <!--DataTable-->
+            <div class="card">
+                <p:dataTable value="#{principalController.client}" var="client" id="table-clients"
+                             widgetVar="tableClients">
+                    <f:facet name="header">
+                        <div class="flex justify-content-center flex-wrap card-container yellow-container">
+                            <div class="flex align-items-center justify-content-center w-22rem h-4rem bg-yellow-500 font-bold text-gray-900 border-round m-2">Zone Fit</div>
+                        </div>
+                    </f:facet>
+                    <p:column headerText="Id">
+                        <h:outputText value="#{client.id}"/>
+                    </p:column>
+                    <p:column headerText="Name">
+                        <h:outputText value="#{client.name}"/>
+                    </p:column>
+                    <p:column headerText="Last Name">
+                        <h:outputText value="#{client.lastName}"/>
+                    </p:column>
+                    <p:column headerText="Membership" styleClass="centeredColumnContent">
+                        <h:outputText value="#{client.membershipId}"/>
+                    </p:column>
+                    <p:column headerText="Edit">
+                        <p:button icon="pi pi-pencil" styleClass="rounded-button ui-button-secondary"/>
+                    </p:column>
+                    <p:column headerText="Delete">
+                        <p:button icon="pi pi-trash" styleClass="rounded-button ui-button-secondary"/>
+                    </p:column>
 
-        <div>
-            <h:form id="client-form">
-                <p:growl id="growlMsg" showDetail="true"/>
-                <div class="card">
-                    <p:menubar>
-                        <p:menuitem value="Start" icon="pi pi-fw pi-user" update=":client-form:table-clients"
-                                    action="#{principalController.init()}"/>
-                        <p:menuitem value="Add Client" icon="pi pi-fw pi-plus" update=":modal-form:window-client"
-                                    actionListener="#{principalController.addClient}"
-                                    oncomplete="PF('modalClientWindow').show()"/>
-                    </p:menubar>
-                </div>
-                <!--DataTable-->
-                <div class="card">
-                    <p:dataTable value="#{principalController.client}" var="client" id="table-clients"
-                                 widgetVar="tableClients">
-                        <f:facet name="header">
-                            <div class="flex justify-content-center flex-wrap card-container yellow-container">
-                                <div class="flex align-items-center justify-content-center w-22rem h-4rem bg-yellow-500 font-bold text-gray-900 border-round m-2">Zone Fit</div>
-                            </div>
-                        </f:facet>
-                        <p:column headerText="Id">
-                            <h:outputText value="#{client.id}"/>
-                        </p:column>
-                        <p:column headerText="Name">
-                            <h:outputText value="#{client.name}"/>
-                        </p:column>
-                        <p:column headerText="Last Name">
-                            <h:outputText value="#{client.lastName}"/>
-                        </p:column>
-                        <p:column headerText="Membership">
-                            <h:outputText value="#{client.membershipId}"/>
-                        </p:column>
-                        <p:column headerText="Membership">
-                            <p:button icon="pi pi-bookmark"
-                                      styleClass="rounded-button ui-button-secondary"/><h:outputText
-                                value="#{client.membershipId}"/>
-                        </p:column>
-
-                    </p:dataTable>
-                </div>
-            </h:form>
-        </div>
-    </h:body>
-</h:html>
+                </p:dataTable>
+            </div>
+        </h:form>
+        <h:form id="modal-form">
+            <p:dialog header="Details Client" widgetVar="modalClientWindow" responsive="true"
+                      showEffect="fade" hideEffect="fade" model="true">
+                <p:outputPanel id="window-client" class="ui-fluid">
+                    <div class="field">
+                        <h:outputLabel for="name" value="Name"/>
+                        <p:inputText id="name" value="#{principalController.selectedClient.name}" required="true"/>
+                        <h:outputLabel for="lastName" value="Last Name"/>
+                        <p:inputText id="lastName" value="#{principalController.selectedClient.lastName}"
+                                     required="true"/>
+                        <h:outputLabel for="membershipId" value="Membership"/>
+                        <p:inputNumber id="membershipId" value="#{principalController.selectedClient.membershipId}"
+                                       required="true"/>
+                    </div>
+                </p:outputPanel>
+                <f:facet name="footer">
+                    <p:commandButton value="Save" icon="pi pi-check" actionListener="#{principalController.saveClient}"
+                                     oncomplete="PF('modalClientWindow').hide()"
+                                     process="window-client @this"/>
+                    <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('modalClientWindow').hide()" class="ui-button-secondary" type="button"/>
+                </f:facet>
+            </p:dialog>
+        </h:form>
+    </div>
+</h:body>
+</html>

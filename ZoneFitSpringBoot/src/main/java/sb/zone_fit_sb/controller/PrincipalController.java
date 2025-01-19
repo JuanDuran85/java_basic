@@ -22,6 +22,7 @@ public class PrincipalController {
     @Autowired
     IClientService clientService;
     private List<Client> client;
+    private Client selectedClient;
     private static final Logger logger = LoggerFactory.getLogger(PrincipalController.class);
 
     public List<Client> getClient() {
@@ -41,6 +42,14 @@ public class PrincipalController {
         try {
             this.client = clientService.findAllClient();
             this.client.forEach(clientOneByOne -> logger.info("Client: {}", clientOneByOne));
+        } catch (Exception ex) {
+            logger.error("Error: {}", ex.getMessage());
+        }
+    }
+
+    public void addClient(){
+        try {
+            this.selectedClient = new Client();
         } catch (Exception ex) {
             logger.error("Error: {}", ex.getMessage());
         }

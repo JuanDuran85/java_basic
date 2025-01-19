@@ -12,32 +12,43 @@
 
         <div>
             <h:form id="client-form">
-                <p:growl id="growlMsg" showDetail="true" />
+                <p:growl id="growlMsg" showDetail="true"/>
                 <div class="card">
                     <p:menubar>
-                        <p:menuitem value="Start" icon="pi pi-fw pi-user" update=":client-form:table-clients" action="#{principalController.init()}" />
+                        <p:menuitem value="Start" icon="pi pi-fw pi-user" update=":client-form:table-clients"
+                                    action="#{principalController.init()}"/>
+                        <p:menuitem value="Add Client" icon="pi pi-fw pi-plus" update=":modal-form:window-client"
+                                    actionListener="#{principalController.addClient}"
+                                    oncomplete="PF('modalClientWindow').show()"/>
                     </p:menubar>
                 </div>
                 <!--DataTable-->
                 <div class="card">
-                    <p:dataTable value="#{principalController.client}" var="client" id="table-clients" widgetVar="tableClients">
+                    <p:dataTable value="#{principalController.client}" var="client" id="table-clients"
+                                 widgetVar="tableClients">
                         <f:facet name="header">
                             <div class="flex justify-content-center flex-wrap card-container yellow-container">
                                 <div class="flex align-items-center justify-content-center w-22rem h-4rem bg-yellow-500 font-bold text-gray-900 border-round m-2">Zone Fit</div>
                             </div>
                         </f:facet>
                         <p:column headerText="Id">
-                            <h:outputText value="#{client.id}" />
+                            <h:outputText value="#{client.id}"/>
                         </p:column>
                         <p:column headerText="Name">
-                            <h:outputText value="#{client.name}" />
+                            <h:outputText value="#{client.name}"/>
                         </p:column>
                         <p:column headerText="Last Name">
-                            <h:outputText value="#{client.lastName}" />
+                            <h:outputText value="#{client.lastName}"/>
                         </p:column>
                         <p:column headerText="Membership">
-                            <h:outputText value="#{client.membershipId}" />
+                            <h:outputText value="#{client.membershipId}"/>
                         </p:column>
+                        <p:column headerText="Membership">
+                            <p:button icon="pi pi-bookmark"
+                                      styleClass="rounded-button ui-button-secondary"/><h:outputText
+                                value="#{client.membershipId}"/>
+                        </p:column>
+
                     </p:dataTable>
                 </div>
             </h:form>

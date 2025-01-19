@@ -72,6 +72,9 @@ public class PrincipalController {
                 this.clientService.updateOrSaveClient(this.selectedClient);
                 this.client.add(this.selectedClient);
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Client added successfully"));
+            } else {
+                this.clientService.updateOrSaveClient(this.selectedClient);
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Client updated successfully"));
             }
             // hiding modal window
             PrimeFaces.current().executeScript("PF('modalClientWindow').hide();");

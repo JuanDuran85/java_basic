@@ -85,4 +85,13 @@ public class PrincipalController {
             logger.error("Error to save: {}", ex.getMessage());
         }
     }
+
+    public void deleteClient() {
+        logger.info("Client to delete: {}", this.selectedClient);
+        this.clientService.deleteClient(this.selectedClient);
+        this.client.remove(this.selectedClient);
+        this.selectedClient = null;
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Client deleted successfully"));
+        PrimeFaces.current().ajax().update("client-form:growlMsg", "client-form:table-clients");
+    }
 }

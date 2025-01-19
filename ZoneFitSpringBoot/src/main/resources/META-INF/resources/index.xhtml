@@ -86,11 +86,10 @@
                 </f:facet>
             </p:dialog>
             <p:confirmDialog header="Delete Client" message="Are you sure you want to delete the client?"
-                             widgetVar="deleteClientWindow" showEffect="fade" hideEffect="fade" appendToBody="true">
-                <p:commandButton value="Yes" icon="pi pi-check" actionListener="#{principalController.deleteClient}"
-                                 oncomplete="PF('deleteClientWindow').hide()" process="@this"/>
-                <p:commandButton value="No" icon="pi pi-times" onclick="PF('deleteClientWindow').hide()"
-                                 class="ui-button-secondary" type="button"/>
+                             widgetVar="deleteClientWindow" showEffect="fade" hideEffect="fade" appendToBody="true" severity="warn">
+                <p:commandButton value="Yes" icon="pi pi-check" process="@this" actionListener="#{principalController.deleteClient}"
+                                 oncomplete="PF('deleteClientWindow').hide()" />
+                <p:commandButton value="No" icon="pi pi-times" class="ui-button-secondary" type="button" onclick="PF('deleteClientWindow').hide()"/>
             </p:confirmDialog>
         </h:form>
     </div>

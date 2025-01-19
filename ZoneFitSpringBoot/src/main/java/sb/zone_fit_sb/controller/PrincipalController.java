@@ -52,7 +52,7 @@ public class PrincipalController {
             this.client = clientService.findAllClient();
             this.client.forEach(clientOneByOne -> logger.info("Client: {}", clientOneByOne));
         } catch (Exception ex) {
-            logger.error("Error: {}", ex.getMessage());
+            logger.error("Error to get: {}", ex.getMessage());
         }
     }
 
@@ -75,11 +75,11 @@ public class PrincipalController {
             }
             // hiding modal window
             PrimeFaces.current().executeScript("PF('modalClientWindow').hide();");
-            // updating table with ajax
-            PrimeFaces.current().ajax().update("client-form:");
+            // partial updating table with ajax
+            PrimeFaces.current().ajax().update("client-form:growlMsg", "client-form:table-clients");
+            this.selectedClient = null;
         } catch (Exception ex) {
             logger.error("Error to save: {}", ex.getMessage());
         }
     }
-
 }

@@ -9,10 +9,38 @@
         <link rel="stylesheet" href="https://unpkg.com/primeflex@latest/primeflex.css"/>
     </h:head>
     <h:body>
-        <div class="flex justify-content-center flex-wrap card-container yellow-container">
-            <div class="flex align-items-center justify-content-center w-22rem h-4rem bg-yellow-500 font-bold text-gray-900 border-round m-2">Zone Fit</div>
-            <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2">2</div>
-            <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-2">3</div>
+
+        <div>
+            <h:form id="client-form">
+                <p:growl id="growlMsg" showDetail="true" />
+                <div class="card">
+                    <p:menubar>
+                        <p:menuitem value="Start" icon="pi pi-fw pi-user" update=":client-form:table-clients" action="#{principalController.init()}" />
+                    </p:menubar>
+                </div>
+                <!--DataTable-->
+                <div class="card">
+                    <p:dataTable value="#{principalController.client}" var="client" id="table-clients" widgetVar="tableClients">
+                        <f:facet name="header">
+                            <div class="flex justify-content-center flex-wrap card-container yellow-container">
+                                <div class="flex align-items-center justify-content-center w-22rem h-4rem bg-yellow-500 font-bold text-gray-900 border-round m-2">Zone Fit</div>
+                            </div>
+                        </f:facet>
+                        <p:column headerText="Id">
+                            <h:outputText value="#{client.id}" />
+                        </p:column>
+                        <p:column headerText="Name">
+                            <h:outputText value="#{client.name}" />
+                        </p:column>
+                        <p:column headerText="Last Name">
+                            <h:outputText value="#{client.lastName}" />
+                        </p:column>
+                        <p:column headerText="Membership">
+                            <h:outputText value="#{client.membershipId}" />
+                        </p:column>
+                    </p:dataTable>
+                </div>
+            </h:form>
         </div>
     </h:body>
 </h:html>

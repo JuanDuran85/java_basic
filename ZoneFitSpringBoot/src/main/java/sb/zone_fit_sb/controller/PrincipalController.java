@@ -1,8 +1,11 @@
 package sb.zone_fit_sb.controller;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import lombok.Data;
+import org.primefaces.PrimeFaces;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -56,12 +59,27 @@ public class PrincipalController {
     public void addClient() {
         try {
             this.selectedClient = new Client();
-            logger.info("---------***********-----------*********** Client: {}", this.selectedClient);
         } catch (Exception ex) {
-            logger.error("Error: {}", ex.getMessage());
+            logger.error("Error to add: {}", ex.getMessage());
         }
     }
 
-
+    public void saveClient() {
+        try {
+            logger.info("Client to save: {}", this.selectedClient);
+            // adding client
+            if(this.selectedClient.getId() == null) {
+                this.clientService.updateOrSaveClient(this.selectedClient);
+                this.client.add(this.selectedClient);
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Client added successfully"));
+            }
+            // hiding modal window
+            PrimeFaces.current().executeScript("PF('modalClientWindow').hide();");
+            // updating table with ajax
+            PrimeFaces.current().ajax().update("client-form:");
+        } catch (Exception ex) {
+            logger.error("Error to save: {}", ex.getMessage());
+        }
+    }
 
 }

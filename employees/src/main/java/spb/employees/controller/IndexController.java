@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import spb.employees.model.Employee;
 import spb.employees.services.EmployeeServices;
 
@@ -22,8 +24,20 @@ public class IndexController {
     public String init(ModelMap model) {
         logger.info("--- init() method called ---");
         List<Employee> employees = employeeServices.listEmployees();
-        employees.forEach(employee -> logger.info(employee.toString()));
         model.put("employees", employees);
         return "index";
+    }
+
+    @GetMapping(value = "/add-employee")
+    public String add(ModelMap model) {
+        logger.info("--- add() method called ---");
+        return "addEmployee";
+    }
+
+    @PostMapping(value = "/add-employee")
+    public String addEmployee(@ModelAttribute("postEmployee") Employee employee) {
+        logger.info("--- addEmployee() method called ---");
+        employeeServices.addOrUpdateEmployee(employee);
+        return "redirect:/";
     }
 }

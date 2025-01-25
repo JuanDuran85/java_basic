@@ -5,7 +5,7 @@
         <h3>Adding a new Employees</h3>
     </div>
     <div class="container-fluid">
-        <form action="/employees/add-employee" modelAttribute="postEmployee" method="post">
+        <form action="${urlAdd}" modelAttribute="postEmployee" method="post">
             <div class="mb-3">
                 <label for="exampleInputName" class="form-label">Name</label>
                 <input type="text" class="form-control" id="exampleInputName" name="name" required>

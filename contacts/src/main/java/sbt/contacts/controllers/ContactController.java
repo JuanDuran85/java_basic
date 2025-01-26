@@ -62,4 +62,12 @@ public class ContactController {
         contactService.saveOrUpdateContact(contactToEdit);
         return "redirect:/";
     }
+
+    @GetMapping("/delete/{id}")
+    public String deleteContactForm(@PathVariable("id") int idContact) {
+        logger.info("------- Initializing delete POST -------");
+        Contact contactToDelete = contactService.getContactById(idContact);
+        contactService.deleteContact(contactToDelete);
+        return "redirect:/";
+    }
 }

@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import sbt.contacts.models.Contact;
 import sbt.contacts.services.ContactServices;
 
@@ -30,4 +33,25 @@ public class ContactController {
         return "index";
     }
 
+    @GetMapping("/add")
+    public String addContactShow() {
+        logger.info("------- Initializing add GET -------");
+        return "add";
+    }
+
+    @PostMapping("/add")
+    public String addContactForm(@ModelAttribute("contactForm") Contact contactToAdd) {
+        logger.info("------- Initializing add POST -------");
+        logger.info("{}", contactToAdd);
+        contactService.saveOrUpdateContact(contactToAdd);
+        return "redirect:/";
+    }
+
+    @GetMapping("/edit/{id}")
+    public String editContactShow(@PathVariable("id") int idContact, ModelMap model) {
+        logger.info("------- Initializing edit GET -------");
+        Contact contact = contactService.getContactById(idContact);
+        model.put("contact", contact);
+        return "edit";
+    }
 }

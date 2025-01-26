@@ -54,4 +54,12 @@ public class ContactController {
         model.put("contact", contact);
         return "edit";
     }
+
+    @PostMapping("/edit")
+    public String editContactForm(@ModelAttribute("contactForm") Contact contactToEdit) {
+        logger.info("------- Initializing edit POST -------");
+        logger.info("{}", contactToEdit);
+        contactService.saveOrUpdateContact(contactToEdit);
+        return "redirect:/";
+    }
 }

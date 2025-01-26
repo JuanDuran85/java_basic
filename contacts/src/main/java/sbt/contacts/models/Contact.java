@@ -26,10 +26,10 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact{" +
-                "idContact=" + idContact +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                "idContact=" + this.idContact +
+                ", name='" + this.name + '\'' +
+                ", email='" + this.email + '\'' +
+                ", phoneNumber='" + this.phoneNumber + '\'' +
                 '}';
     }
 
@@ -43,5 +43,37 @@ public class Contact {
     @Override
     public int hashCode() {
         return Objects.hash(idContact, name, email, phoneNumber);
+    }
+
+    public Integer getIdContact() {
+        return idContact;
+    }
+
+    public void setIdContact(Integer idContact) {
+        this.idContact = idContact;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

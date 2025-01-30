@@ -12,7 +12,7 @@ import sb.inventory.services.IProductServices;
 import java.util.List;
 
 @RestController
-@RequestMapping("/products")
+@RequestMapping("/products-app")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProductController {
 

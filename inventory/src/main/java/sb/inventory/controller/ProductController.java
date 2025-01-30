@@ -2,10 +2,7 @@ package sb.inventory.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import sb.inventory.model.Product;
 import sb.inventory.services.IProductServices;
 
@@ -29,5 +26,11 @@ public class ProductController {
         List<Product> products = this.productServices.getAllProducts();
         products.forEach(product -> logger.info(product.toString()));
         return this.productServices.getAllProducts();
+    }
+
+    @PostMapping("/products")
+    public Product addProduct(@RequestBody Product product){
+        logger.info("{}",product);
+        return this.productServices.addProduct(product);
     }
 }

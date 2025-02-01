@@ -2,7 +2,9 @@ package sb.inventory.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sb.inventory.exceptions.NotFoundException;
 import sb.inventory.model.Product;
 import sb.inventory.services.IProductServices;
 
@@ -29,8 +31,17 @@ public class ProductController {
     }
 
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product){
-        logger.info("{}",product);
+    public Product addProduct(@RequestBody Product product) {
+        logger.info("{}", product);
         return this.productServices.addProduct(product);
+    }
+
+    @GetMapping("/products/{id}")
+    public ResponseEntity<Product> getProductById(@PathVariable int id) {
+        Product product = this.productServices.getProductById(id);
+        if (product == null) {
+            throw new NotFoundException("Product not found with id: " + id);
+        }
+        return ResponseEntity.ok().body(product);
     }
 }

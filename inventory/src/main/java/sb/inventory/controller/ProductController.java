@@ -8,7 +8,9 @@ import sb.inventory.exceptions.NotFoundException;
 import sb.inventory.model.Product;
 import sb.inventory.services.IProductServices;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/products-app")
@@ -59,5 +61,19 @@ public class ProductController {
         this.productServices.addProduct(product);
 
         return ResponseEntity.ok().body(product);
+    }
+
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteProduct(@PathVariable int id) {
+        Product product = this.productServices.getProductById(id);
+
+        if (product == null) {
+            throw new NotFoundException("Product not found with id: " + id);
+        }
+
+        this.productServices.deleteProductById(id);
+        Map<String, Boolean> responseEntity = new HashMap<>();
+        responseEntity.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(responseEntity);
     }
 }

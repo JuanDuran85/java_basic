@@ -44,4 +44,20 @@ public class ProductController {
         }
         return ResponseEntity.ok().body(product);
     }
+
+    @PutMapping("/products/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable int id, @RequestBody Product requestProduct) {
+        Product product = this.productServices.getProductById(id);
+
+        if (product == null) {
+            throw new NotFoundException("Product not found with id: " + id);
+        }
+
+        product.setDescription(requestProduct.getDescription());
+        product.setPrice(requestProduct.getPrice());
+        product.setStock(requestProduct.getStock());
+        this.productServices.addProduct(product);
+
+        return ResponseEntity.ok().body(product);
+    }
 }

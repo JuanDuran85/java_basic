@@ -19,8 +19,6 @@ public class Trick02 {
         person.put("country", "USA");
         person.put("city", "New York");
         wellStructuredLog(person);
-
-
     }
 
     public static void wellStructuredLog(Map<String, String> personIn) {
@@ -31,7 +29,11 @@ public class Trick02 {
          * Using a consistent format across your application helps in
          *
          * */
-        logger.log(Level.INFO, "Structured Log: {0} ", personIn.get("name"));
-        logger.throwing("Exception", "Exception message", new Exception());
+        try {
+            // logic here
+            logger.log(Level.INFO, "Structured Log: {0} ", personIn.get("name"));
+        } catch (Exception ex) {
+            logger.throwing("Exception", "Exception message", ex);
+        }
     }
 }

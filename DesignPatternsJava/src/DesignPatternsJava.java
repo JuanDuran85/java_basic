@@ -3,7 +3,7 @@ import strategy_pattern_package.model.Balloon;
 import strategy_pattern_package.model.Clown;
 import strategy_pattern_package.model.SquereBalloon;
 
-public class Main {
+public class DesignPatternsJava {
     public static void main(String[] args) {
 
         System.out.println("Strategy Pattern");

@@ -1,19 +1,19 @@
 package strategy_pattern_package.model;
 
 public class Product {
-    private String price;
+    private Float price;
     private String upcCpde;
 
-    public Product(String price, String upcCpde) {
+    public Product(Float price, String upcCpde) {
         this.price = price;
         this.upcCpde = upcCpde;
     }
 
-    public String getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 

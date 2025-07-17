@@ -91,5 +91,8 @@ public class DesignPatternsJava {
 
         // provider / subject (broadcaster)
         topic.postMessage(" - Hello Subscribers! -");
+
+        topic.unregister(firstObserver);
+        topic.postMessage(" - Hello Subscribers - second message! -");
     }
 }

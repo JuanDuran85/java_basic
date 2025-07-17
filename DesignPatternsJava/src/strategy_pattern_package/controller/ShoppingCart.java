@@ -5,7 +5,7 @@ import strategy_pattern_package.model.Product;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingCart implements Payment {
+public class ShoppingCart {
     List<Product> productList;
 
     public ShoppingCart(){
@@ -20,16 +20,16 @@ public class ShoppingCart implements Payment {
         productList.remove(product);
     }
 
-    public Float calculateTotal(){
-        Float sum = 0.0f;
+    public double calculateTotal(){
+        double sum = 0.0f;
         for (Product product: productList){
             sum += product.getPrice();
         }
         return sum;
     }
 
-    @Override
-    public void pay(int amount) {
-        float amountTotal = calculateTotal();
+    public void pay(Payment paymentStrategy) {
+        double totalAmount = calculateTotal();
+        paymentStrategy.pay(totalAmount);
     }
 }

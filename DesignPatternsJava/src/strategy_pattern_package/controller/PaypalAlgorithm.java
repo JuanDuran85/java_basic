@@ -19,7 +19,7 @@ public class PaypalAlgorithm implements Payment {
 
 
     @Override
-    public void pay(int amount) {
+    public void pay(double amount) {
         System.out.println(amount + " paid with PayPal");
     }
 }

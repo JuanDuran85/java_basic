@@ -22,6 +22,12 @@ public class DesignPatternsJava {
         //------------------------------------------------------------
         exampleTwo();
         //------------------------------------------------------------
+
+        System.out.println(LINE_SEPARATOR);
+        System.out.println(" ------- Observer Pattern -------");
+        System.out.println(LINE_SEPARATOR);
+
+
     }
 
     public static void exampleOne() {

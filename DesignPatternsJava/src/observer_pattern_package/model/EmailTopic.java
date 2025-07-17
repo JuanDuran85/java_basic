@@ -8,7 +8,7 @@ import java.util.List;
 
 public class EmailTopic implements SubjectI {
     private String message;
-    private List<ObserverI> observerIList;
+    private final List<ObserverI> observerIList;
 
     public EmailTopic() {
         this.observerIList = new ArrayList<>();
@@ -40,7 +40,7 @@ public class EmailTopic implements SubjectI {
     }
 
     public void postMessage(String messageIn) {
-        System.out.println("Message posted to my topic: " + message);
+        System.out.println("Message posted to my topic: " + messageIn);
         this.message = messageIn;
         notifyObservers();
     }

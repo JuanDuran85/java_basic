@@ -1,3 +1,6 @@
+import observer_pattern_package.interfaces.ObserverI;
+import observer_pattern_package.model.EmailTopic;
+import observer_pattern_package.model.EmailTopicSubscriber;
 import strategy_pattern_package.controller.CreditCardAlgorithm;
 import strategy_pattern_package.controller.PaypalAlgorithm;
 import strategy_pattern_package.controller.ScoreBoard;
@@ -26,7 +29,9 @@ public class DesignPatternsJava {
         System.out.println(LINE_SEPARATOR);
         System.out.println(" ------- Observer Pattern -------");
         System.out.println(LINE_SEPARATOR);
-
+        //------------------------------------------------------------
+        observerExample();
+        //------------------------------------------------------------
 
     }
 
@@ -60,5 +65,31 @@ public class DesignPatternsJava {
 
         shoppingCart.pay(new PaypalAlgorithm("correo@correo.com","3455332"));
         shoppingCart.pay(new CreditCardAlgorithm("Name User","3455667756455332"));
+    }
+
+    public static void observerExample(){
+        EmailTopic topic = new EmailTopic();
+
+        // creating observers
+        ObserverI firstObserver = new EmailTopicSubscriber("FirstObserver");
+        ObserverI secondObserver = new EmailTopicSubscriber("SecondObserver");
+        ObserverI thirdObserver = new EmailTopicSubscriber("ThirdObserver");
+
+        // registering observers
+        topic.register(firstObserver);
+        topic.register(secondObserver);
+        topic.register(thirdObserver);
+
+        // attaching observers to subject / topic
+        firstObserver.setSubject(topic);
+        secondObserver.setSubject(topic);
+        thirdObserver.setSubject(topic);
+
+        // checking for updates
+        firstObserver.update();
+        thirdObserver.update();
+
+        // provider / subject (broadcaster)
+        topic.postMessage(" - Hello Subscribers! -");
     }
 }

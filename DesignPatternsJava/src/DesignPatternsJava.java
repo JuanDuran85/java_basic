@@ -1,3 +1,7 @@
+import decorator_patter_package.interfaces.IceCreamI;
+import decorator_patter_package.model.BasicIceCreamModel;
+import decorator_patter_package.model.MintIceCream;
+import decorator_patter_package.model.VanillaIceCream;
 import observer_pattern_package.interfaces.ObserverI;
 import observer_pattern_package.model.EmailTopic;
 import observer_pattern_package.model.EmailTopicSubscriber;
@@ -20,10 +24,10 @@ public class DesignPatternsJava {
         System.out.println(" ------- Strategy Pattern -------");
         System.out.println(LINE_SEPARATOR);
         //------------------------------------------------------------
-        exampleOne();
+        strategyExampleOne();
         //------------------------------------------------------------
         //------------------------------------------------------------
-        exampleTwo();
+        strategyExampleTwo();
         //------------------------------------------------------------
 
         System.out.println(LINE_SEPARATOR);
@@ -33,9 +37,16 @@ public class DesignPatternsJava {
         observerExample();
         //------------------------------------------------------------
 
+        System.out.println(LINE_SEPARATOR);
+        System.out.println(" ------- Decorator Pattern -------");
+        System.out.println(LINE_SEPARATOR);
+        //------------------------------------------------------------
+        decoratorExample();
+        //------------------------------------------------------------
+
     }
 
-    public static void exampleOne() {
+    private static void strategyExampleOne() {
 
         System.out.println(" ------- Example One -------");
         ScoreBoard scoreBoard = new ScoreBoard();
@@ -53,7 +64,7 @@ public class DesignPatternsJava {
         System.out.println(LINE_SEPARATOR);
     }
 
-    public static void exampleTwo() {
+    private static void strategyExampleTwo() {
         System.out.println(" ------- Example Two -------");
         Product pants = new Product(34.45, "3af4hgj55");
         Product shirt = new Product(9.99, "4mfvk83ds");
@@ -63,11 +74,11 @@ public class DesignPatternsJava {
         shoppingCart.addProduct(shirt);
         shoppingCart.addProduct(trainers);
 
-        shoppingCart.pay(new PaypalAlgorithm("correo@correo.com","3455332"));
-        shoppingCart.pay(new CreditCardAlgorithm("Name User","3455667756455332"));
+        shoppingCart.pay(new PaypalAlgorithm("correo@correo.com", "3455332"));
+        shoppingCart.pay(new CreditCardAlgorithm("Name User", "3455667756455332"));
     }
 
-    public static void observerExample(){
+    private static void observerExample() {
         EmailTopic topic = new EmailTopic();
 
         // creating observers
@@ -95,4 +106,17 @@ public class DesignPatternsJava {
         topic.unregister(firstObserver);
         topic.postMessage(" - Hello Subscribers - second message! -");
     }
+
+    private static void decoratorExample() {
+        IceCreamI basicIceCreamModel = new BasicIceCreamModel();
+        double costBasic = basicIceCreamModel.cost();
+        System.out.println("Cost: " + costBasic);
+
+        IceCreamI vanillaIceCream = new VanillaIceCream(basicIceCreamModel);
+        double costVanilla = vanillaIceCream.cost();
+        System.out.println("Cost: " + costVanilla);
+
+        IceCreamI mintIceCream = new MintIceCream(vanillaIceCream);
+    }
+
 }

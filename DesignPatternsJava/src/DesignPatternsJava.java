@@ -1,5 +1,6 @@
 import decorator_patter_package.interfaces.IceCreamI;
 import decorator_patter_package.model.BasicIceCreamModel;
+import decorator_patter_package.model.ChocolateIceCream;
 import decorator_patter_package.model.MintIceCream;
 import decorator_patter_package.model.VanillaIceCream;
 import observer_pattern_package.interfaces.ObserverI;
@@ -109,14 +110,24 @@ public class DesignPatternsJava {
 
     private static void decoratorExample() {
         IceCreamI basicIceCreamModel = new BasicIceCreamModel();
-        double costBasic = basicIceCreamModel.cost();
-        System.out.println("Cost: " + costBasic);
+        String costBasic = String.format("%.2f", basicIceCreamModel.cost());
+        System.out.println("Cost: %.2f%n" + costBasic);
 
         IceCreamI vanillaIceCream = new VanillaIceCream(basicIceCreamModel);
-        double costVanilla = vanillaIceCream.cost();
+        String costVanilla = String.format("%.2f", vanillaIceCream.cost());
         System.out.println("Cost: " + costVanilla);
 
-        IceCreamI mintIceCream = new MintIceCream(vanillaIceCream);
+        IceCreamI mintIceCream = new MintIceCream(basicIceCreamModel);
+        String costMint = String.format("%.2f", mintIceCream.cost());
+        System.out.println("Cost: " + costMint);
+
+        IceCreamI chocolateIceCream = new ChocolateIceCream(basicIceCreamModel);
+        String costChocolate = String.format("%.2f", chocolateIceCream.cost());
+        System.out.println("Cost: " + costChocolate);
+
+        IceCreamI mintVanillaIceCream = new MintIceCream(vanillaIceCream);
+        String costMintVanilla = String.format("%.2f", mintVanillaIceCream.cost());
+        System.out.println("Cost: " + costMintVanilla);
     }
 
 }

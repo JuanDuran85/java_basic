@@ -45,6 +45,13 @@ public class DesignPatternsJava {
         decoratorExample();
         //------------------------------------------------------------
 
+
+        System.out.println(LINE_SEPARATOR);
+        System.out.println(" ------- Factory Pattern -------");
+        System.out.println(LINE_SEPARATOR);
+        //------------------------------------------------------------
+        factoryExample();
+        //------------------------------------------------------------
     }
 
     private static void strategyExampleOne() {
@@ -130,4 +137,6 @@ public class DesignPatternsJava {
         System.out.println("Cost: " + costMintVanilla);
     }
 
+    private static void factoryExample() {
+    }
 }

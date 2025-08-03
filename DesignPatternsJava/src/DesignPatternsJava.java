@@ -3,6 +3,10 @@ import decorator_patter_package.model.BasicIceCreamModel;
 import decorator_patter_package.model.ChocolateIceCream;
 import decorator_patter_package.model.MintIceCream;
 import decorator_patter_package.model.VanillaIceCream;
+import factory_patter_package.interfaces.HamburgerStore;
+import factory_patter_package.model.Hamburger;
+import factory_patter_package.model.JamHamburgerStore;
+import factory_patter_package.model.MozHamburgerStore;
 import observer_pattern_package.interfaces.ObserverI;
 import observer_pattern_package.model.EmailTopic;
 import observer_pattern_package.model.EmailTopicSubscriber;
@@ -138,5 +142,15 @@ public class DesignPatternsJava {
     }
 
     private static void factoryExample() {
+        HamburgerStore mozambiqueHamburgerStore = new MozHamburgerStore();
+        HamburgerStore jamaicanHambuergerStore = new JamHamburgerStore();
+
+        System.out.println("----------------------------------");
+        Hamburger mozHamburger = mozambiqueHamburgerStore.orderHamburger("cheese");
+        System.out.println("Joe ordered a " + mozHamburger.getName());
+
+        System.out.println("----------------------------------");
+        Hamburger jamHamburger = jamaicanHambuergerStore.orderHamburger("cheese");
+        System.out.println("Doe ordered a " + jamHamburger.getName());
     }
 }

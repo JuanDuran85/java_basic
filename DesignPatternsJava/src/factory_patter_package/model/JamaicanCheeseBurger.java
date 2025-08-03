@@ -9,6 +9,6 @@ public class JamaicanCheeseBurger extends Hamburger {
 
     @Override
     public void cook() {
-        System.out.println("Cooking Jamaican Style Burger...");
+        System.out.println("Cooking Jamaican Style Cheese Burger...");
     }
 }
